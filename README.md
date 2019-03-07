@@ -90,11 +90,11 @@ docker restart hexo-domain.com
 
 ## Accessing Hexo
 
-Access the default hexo blog interface at http://<ip_address>:4000
+Access the default hexo blog interface at http://< ip_address >:4000
 
 ## Accessing Hexo-Admin
 
-Access Hexo-Admin at http://<ip_address>:4000/admin
+Access Hexo-Admin at http://< ip_address >:4000/admin
 
 ## Generating Content
 
