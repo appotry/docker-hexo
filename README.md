@@ -12,11 +12,13 @@ The image is available directly from [Docker Hub](https://hub.docker.com/r/spuri
 
 ## Getting Started
 
-Create a new blog container, substitute *domain.com* for your domain and specify your blog location with -v target:/app:
+Create a new blog container, substitute *domain.com* for your domain and specify your blog location with -v target:/app, specify your git user and email address (for deployment):
 
 ```
 docker create --name=hexo-domain.com \
 -e HEXO_SERVER_PORT=4000 \
+-e GIT_USER="Your Name" \
+-e GIT_EMAIL="your.email@domain.tld" \
 -v /blog/domain.com:/app \
 -p 4000:4000 \
 spurin/hexo
@@ -28,38 +30,28 @@ If a blog is not configured in /app (locally as /blog/domain.com) already, it wi
 docker start hexo-domain.com
 ```
 
-
 ## Accessing the container
 
-Should you wish to perform further configuration, i.e. installing custom themes or setting up deploy keys, access the Docker container for further configuration
+Should you wish to perform further configuration, i.e. installing custom themes, this should be viable from the app specific volume, either directly or via the container (changes to the app volume are persistent).  Accessing the container -
 
 ```
 docker exec -it hexo-domain.com bash
 ```
 
-## Examples, when inside the container
+## Deployment keys for use with Github/Gitlab
 
-### Setup deployment keys for use with Github/Gitlab
-
-Should you wish to deploy your site to an external repository, you may need to have SSH keys configured, whilst in the container, execute the following
+Deployment keys are configured as part of the initial app configuration, see the .ssh directory within your app volume or, view the logs upon startup for the SSH public key
 
 ```
-ssh-keygen
+docker logs --follow hexo-domain.com
 ```
 
-After either accepting the defaults, or configuring accordingly, cat the contents of the generated public key, i.e -
+### Installing a theme
+
+Each theme will vary but for example, a theme such as [Hueman](https://github.com/ppoffice/hexo-theme-hueman), clone the repository to the themes directory within the app volume
 
 ```
-cat ~/.ssh/id_rsa.pub
-```
-Using the public key as desired
-
-
-### Install a theme
-
-Each theme will vary but for example, a theme such as [Hueman](https://github.com/ppoffice/hexo-theme-hueman), clone the repository
-
-```
+cd /app
 git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman
 ```
 
@@ -87,7 +79,6 @@ And restart the container
 docker restart hexo-domain.com
 ```
 
-
 ## Accessing Hexo
 
 Access the default hexo blog interface at http://< ip_address >:4000
@@ -107,3 +98,26 @@ docker exec -it hexo-domain.com hexo generate
 ```
 docker exec -it hexo-domain.com hexo deploy
 ```
+
+## Customising the image
+
+If you wish to customise this container image, I recommend creating another image from it with the post steps required.  As an example, for one of my domains, I required hexo-generator-json-content.  I created a Dockerfile called Dockerfile-spurin.com with the following content -
+
+```
+FROM spurin/hexo:latest
+
+MAINTAINER James Spurin <james@spurin.com>
+
+# Install plugins
+RUN \
+ # Install hexo-generator-json-content
+ npm install hexo-generator-json-content --save
+```
+
+I then built a specific image, with the customisations -
+
+```
+docker build -t spurin/hexo-spurin.com -f Dockerfile-spurin.com .
+```
+
+And subsequently, used spurin/hexo-spurin.com instead of spurin/hexo as the image
