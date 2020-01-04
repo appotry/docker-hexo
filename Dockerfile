@@ -31,6 +31,12 @@ CMD \
     npm install && \
     npm install --save hexo-admin; \
   fi; \
+  if [ ! -f /app/requirements.txt ]; then \
+    echo "***** App directory contains no requirements.txt file, continuing *****"; \
+  else \
+    echo "***** App directory contains a requirements.txt file, installing npm requirements *****"; \
+    cat /app/requirements.txt | xargs npm --prefer-offline install --save; \
+  fi; \
   if [ "$(ls -A /app/.ssh 2>/dev/null)" ]; then \
     echo "***** App .ssh directory exists and has content, continuing *****"; \
   else \
