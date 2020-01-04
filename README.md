@@ -99,25 +99,12 @@ docker exec -it hexo-domain.com hexo generate
 docker exec -it hexo-domain.com hexo deploy
 ```
 
-## Customising the image
+## Adding hexo plugins
 
-If you wish to customise this container image, I recommend creating another image from it with the post steps required.  As an example, for one of my domains, I required hexo-generator-json-content.  I created a Dockerfile called Dockerfile-spurin.com with the following content -
-
-```
-FROM spurin/hexo:latest
-
-MAINTAINER James Spurin <james@spurin.com>
-
-# Install plugins
-RUN \
- # Install hexo-generator-json-content
- npm install hexo-generator-json-content --save
-```
-
-I then built a specific image, with the customisations -
+If you wish to add specific hexo plugins, add them to a requirements.txt file to your app volume, for example (app/requirements.txt) -
 
 ```
-docker build -t spurin/hexo-spurin.com -f Dockerfile-spurin.com .
+hexo-generator-json-content
 ```
 
-And subsequently, used spurin/hexo-spurin.com instead of spurin/hexo as the image
+During startup, if the requirements.txt file exists, requirements are auto installed
