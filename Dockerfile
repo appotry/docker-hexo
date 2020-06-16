@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:13-slim
 
 MAINTAINER James Spurin <james@spurin.com>
 
