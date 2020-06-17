@@ -3,7 +3,7 @@
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/spurin/hexo/)
 
-Hexo
+Hexo 🐋
 ============
 
 Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
