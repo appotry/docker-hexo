@@ -10,6 +10,10 @@ Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jar
 
 The image is available directly from [Docker Hub](https://hub.docker.com/r/spurin/hexo/)
 
+A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
+
+Latest update locks the node version to 13-slim rather than slim (which at the time of writing is 14), whilst Hexo appears to work for most areas, there is at present an outstanding issue that prevents the `hexo deploy` working with 14.  See [Hexo 4275]( https://github.com/hexojs/hexo/issues/4275)
+
 ## Getting Started
 
 Create a new blog container, substitute *domain.com* for your domain and specify your blog location with -v target:/app, specify your git user and email address (for deployment):
