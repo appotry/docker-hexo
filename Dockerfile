@@ -34,6 +34,8 @@ CMD \
     npm install hexo-generator-search --save && \
     npm install hexo-deployer-git --save && \
     npm install hexo-generator-feed --save && \
+    npm install hexo-generator-searchdb --save && \
+    npm install hexo-wordcount --save && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
