@@ -38,6 +38,8 @@ CMD \
     npm install hexo-wordcount --save && \
     npm install hexo-permalink-pinyin --save && \
     npm install hexo-filter-github-emojis --save && \
+    npm install hexo-generator-sitemap --save && \
+    npm install hexo-generator-baidu-sitemap --save && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
