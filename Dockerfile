@@ -12,7 +12,7 @@ ENV GIT_EMAIL="joe@bloggs.com"
 # Install requirements
 RUN \
  apt-get update && \
- apt-get install git -y && \
+ apt-get install git curl vim -y && \
  npm config set registry https://registry.npm.taobao.org && \
  npm install -g hexo-cli
 
