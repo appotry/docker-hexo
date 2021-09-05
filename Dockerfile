@@ -32,7 +32,7 @@ CMD \
     npm install && \
     npm install --save hexo-admin && \
     npm install hexo-generator-search --save && \
-    git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery
+    git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
     echo "***** App directory contains no requirements.txt file, continuing *****"; \
