@@ -14,7 +14,11 @@ RUN \
  apt-get update && \
  apt-get install git -y && \
  npm config set registry https://registry.npm.taobao.org && \
- npm install -g hexo-cli
+ npm install -g hexo-cli && \
+ npm install --save hexo-admin && \
+ npm install hexo-generator-search --save && \
+ git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery
+ 
 
 # Set workdir
 WORKDIR /app
