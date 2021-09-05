@@ -32,6 +32,7 @@ CMD \
     npm install && \
     npm install --save hexo-admin && \
     npm install hexo-generator-search --save && \
+    npm install hexo-deployer-git --save && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
