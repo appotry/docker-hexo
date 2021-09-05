@@ -1,6 +1,6 @@
 FROM node:13-slim
 
-MAINTAINER James Spurin <james@spurin.com>
+MAINTAINER appotry <andycrusoe@gmail.com>
 
 # Set the server port as an environmental
 ENV HEXO_SERVER_PORT=4000
@@ -12,7 +12,7 @@ ENV GIT_EMAIL="joe@bloggs.com"
 # Install requirements
 RUN \
  apt-get update && \
- apt-get install git curl vim -y && \
+ apt-get install git curl vim procps -y && \
  npm config set registry https://registry.npm.taobao.org && \
  npm install -g hexo-cli
 
