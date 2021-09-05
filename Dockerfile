@@ -13,6 +13,7 @@ ENV GIT_EMAIL="joe@bloggs.com"
 RUN \
  apt-get update && \
  apt-get install git -y && \
+ npm config set registry https://registry.npm.taobao.org && \
  npm install -g hexo-cli
 
 # Set workdir
