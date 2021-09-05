@@ -14,11 +14,7 @@ RUN \
  apt-get update && \
  apt-get install git -y && \
  npm config set registry https://registry.npm.taobao.org && \
- npm install -g hexo-cli && \
- npm install --save hexo-admin && \
- npm install hexo-generator-search --save && \
- git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery
- 
+ npm install -g hexo-cli
 
 # Set workdir
 WORKDIR /app
@@ -34,7 +30,9 @@ CMD \
     echo "***** App directory is empty, initialising with hexo and hexo-admin *****" && \
     hexo init && \
     npm install && \
-    npm install --save hexo-admin; \
+    npm install --save hexo-admin && \
+    npm install hexo-generator-search --save && \
+    git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
     echo "***** App directory contains no requirements.txt file, continuing *****"; \
