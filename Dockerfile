@@ -40,6 +40,10 @@ CMD \
     npm install hexo-filter-github-emojis --save && \
     npm install hexo-generator-sitemap --save && \
     npm install hexo-generator-baidu-sitemap --save && \
+    npm install hexo-related-popular-posts --save && \
+    npm uninstall hexo-generator-index --save && \
+    npm install hexo-generator-index-pin-top --save && \
+    npm install hexo-cake-moon-menu --save && \
     echo "install hexo-theme-matery" && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; && \
     echo " upgrade hexo and npm " && \
