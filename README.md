@@ -1,14 +1,15 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/spurin/hexo.svg)](https://hub.docker.com/r/spurin/hexo/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 [![](https://images.microbadger.com/badges/version/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
-[![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/spurin/hexo/)
+[![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
+Thanks：[spurin/docker-hexo](https://github.com/spurin/docker-hexo)
 Hexo 🐋
 ============
 
 Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
 
-The image is available directly from [Docker Hub](https://hub.docker.com/r/spurin/hexo/)
+The image is available directly from [Docker Hub](https://hub.docker.com/r/bloodstar/hexo/)
 
 A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
 
