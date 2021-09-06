@@ -40,7 +40,15 @@ CMD \
     npm install hexo-filter-github-emojis --save && \
     npm install hexo-generator-sitemap --save && \
     npm install hexo-generator-baidu-sitemap --save && \
-    git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
+    echo "install hexo-theme-matery" && \
+    git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; && \
+    echo " upgrade hexo and npm " && \
+    npm install -g npm-check && \
+    npm-check && \
+    npm install -g npm-upgrade && \
+    npm-upgrade && \
+    npm update -g && \
+    npm update --save; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
     echo "***** App directory contains no requirements.txt file, continuing *****"; \
