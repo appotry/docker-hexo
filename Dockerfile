@@ -44,9 +44,9 @@ CMD \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; && \
     echo " upgrade hexo and npm " && \
     npm install -g npm-check && \
-    npm-check && \
+    npm-check --skip-unused && \
     npm install -g npm-upgrade && \
-    npm-upgrade && \
+    echo -n "\r\n\r\n\r\ny" | npm-upgrade && \
     npm update -g && \
     npm update --save; \
   fi; \
