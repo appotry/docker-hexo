@@ -3,8 +3,14 @@
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
-Thanks：[spurin/docker-hexo](https://github.com/spurin/docker-hexo)
-Hexo 🐋
+# **Hexo 中文化环境配置**
+
+Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
+
+Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
+
+Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
+
 ============
 
 Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
