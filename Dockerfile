@@ -1,4 +1,4 @@
-FROM node:13-slim
+FROM node:lts
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
@@ -45,13 +45,6 @@ CMD \
     npm install hexo-generator-index-pin-top --save && \
     echo "install hexo-theme-matery" && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; && \
-    echo " upgrade hexo and npm " && \
-    npm install -g npm-check && \
-    npm-check --skip-unused && \
-    npm install -g npm-upgrade && \
-    echo -n "\r\n\r\n\r\ny" | npm-upgrade && \
-    npm update -g && \
-    npm update --save; \
   fi; \
   if [ ! -f /app/requirements.txt ]; then \
     echo "***** App directory contains no requirements.txt file, continuing *****"; \
