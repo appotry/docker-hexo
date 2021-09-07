@@ -6,15 +6,16 @@ MAINTAINER appotry <andycrusoe@gmail.com>
 ENV HEXO_SERVER_PORT=4000
 
 # Set the git username and email
-ENV GIT_USER="Joe Bloggs"
-ENV GIT_EMAIL="joe@bloggs.com"
+ENV GIT_USER="andy"
+ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
-RUN \
- apt-get update && \
- apt-get install git curl vim procps -y && \
- npm config set registry https://registry.npm.taobao.org && \
- npm install -g hexo-cli
+RUN echo 'https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main' > /etc/apk/repositories && \
+    echo 'https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/community' >> /etc/apk/repositories && \
+    apt-get update && \
+    apt-get install git curl vim procps -y && \
+    npm config set registry https://registry.npm.taobao.org && \
+    npm install -g hexo-cli
 
 # Set workdir
 WORKDIR /app
