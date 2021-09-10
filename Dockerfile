@@ -44,7 +44,11 @@ CMD \
     npm install hexo-related-popular-posts --save && \
     npm uninstall hexo-generator-index --save && \
     npm install hexo-generator-index-pin-top --save && \
+    echo "install live2d and model weier" && \
+    npm uninstall fsevents && \
+    npm install fsevents && \
     npm install --save hexo-helper-live2d && \
+    npm install live2d-widget-model-lwet && \
     echo "install hexo-theme-matery" && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
