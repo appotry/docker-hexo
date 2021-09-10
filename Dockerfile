@@ -12,6 +12,8 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 # Install requirements
 RUN apt-get update && \
     apt-get install git curl vim procps -y && \
+    apt-get install yarn -y && \
+    apt-get clean && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g hexo-cli
 
