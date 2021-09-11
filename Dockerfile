@@ -44,7 +44,6 @@ CMD \
     npm install hexo-translate-title --save && \
     npm install hexo-admonition --save && \
     npm install hexo-related-popular-posts --save && \
-    npm install hexo-lazyload-image --save && \
     npm uninstall hexo-generator-index --save && \
     npm install hexo-generator-index-pin-top --save && \
     echo "install live2d and model weier" && \
