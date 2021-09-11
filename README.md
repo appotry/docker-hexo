@@ -32,7 +32,7 @@ docker create --name=hexo-domain.com \
 -e GIT_EMAIL="your.email@domain.tld" \
 -v /blog/domain.com:/app \
 -p 4000:4000 \
-spurin/hexo
+bloodstar/hexo
 ```
 
 If a blog is not configured in /app (locally as /blog/domain.com) already, it will be created and Hexo-Admin will be installed into the blog as the container is started
