@@ -46,7 +46,6 @@ CMD \
     npm install hexo-related-popular-posts --save && \
     npm uninstall hexo-generator-index --save && \
     npm install hexo-generator-index-pin-top --save && \
-    npm install hexo-baidu-url-submit --save && \
     npm install hexo-baidu-url-push --save && \
     echo "install live2d and model weier" && \
     npm uninstall fsevents && \
