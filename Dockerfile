@@ -48,9 +48,9 @@ CMD \
     npm install hexo-generator-index-pin-top --save && \
     echo "install live2d and model weier" && \
     npm uninstall fsevents && \
-    npm install fsevents && \
-    npm install --save hexo-helper-live2d && \
-    npm install live2d-widget-model-lwet && \
+    npm install fsevents --save && \
+    npm install hexo-helper-live2d --save && \
+    npm install live2d-widget-model-lwet --save && \
     echo "install hexo-theme-matery" && \
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; \
   fi; \
