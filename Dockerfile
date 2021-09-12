@@ -41,12 +41,10 @@ CMD \
     npm install hexo-filter-github-emojis --save && \
     npm install hexo-generator-sitemap --save && \
     npm install hexo-generator-baidu-sitemap --save && \
-    npm install hexo-translate-title --save && \
     npm install hexo-admonition --save && \
     npm install hexo-related-popular-posts --save && \
     npm uninstall hexo-generator-index --save && \
     npm install hexo-generator-index-pin-top --save && \
-    npm install hexo-baidu-url-push --save && \
     echo "install live2d and model weier" && \
     npm uninstall fsevents && \
     npm install fsevents --save && \
