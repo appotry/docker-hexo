@@ -19,6 +19,10 @@ RUN apt-get update && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g hexo-cli
 
+ENV LANG zh_CN.UTF-8
+ENV LANGUAGE zh_CN.UTF-8
+ENV LC_ALL zh_CN.UTF-8
+
 # Set workdir
 WORKDIR /app
 
