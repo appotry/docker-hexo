@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
 # **Hexo 中文化环境配置**
+附加安装一大堆使用插件，并且下载Matery主题
 
 Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
 
