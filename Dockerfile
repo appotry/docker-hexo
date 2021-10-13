@@ -17,7 +17,8 @@ RUN apt-get update && \
     apt-get install yarn -y && \
     apt-get clean && \
     npm config set registry https://registry.npm.taobao.org && \
-    npm install -g hexo-cli
+    npm install -g hexo-cli && \
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
@@ -57,6 +58,8 @@ CMD \
     echo "install live2d and model weier" && \
     npm uninstall fsevents && \
     npm install fsevents --save && \
+    echo "Please install browser plugin liveReload !" && \
+    npm install livereload bufferutil utf-8-validate --save && \
     npm install hexo-helper-live2d --save && \
     npm install live2d-widget-model-lwet --save && \
     echo "install hexo-theme-matery" && \
