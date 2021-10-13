@@ -23,7 +23,8 @@ else
     cnpm install hexo-related-popular-posts --save 
     cnpm install hexo-generator-index --save
     #cnpm install hexo-generator-index-pin-top --save 
-    #cnpm i hexo-web-push-notification --save 
+    #cnpm install hexo-offline --save 
+    #cnpm install hexo-web-push-notification --save 
     #cnpm install highlight.js --save 
     echo "install live2d and model weier" 
     #cnpm uninstall fsevents 
