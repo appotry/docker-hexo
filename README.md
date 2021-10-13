@@ -19,7 +19,6 @@ Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
 
 Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
 
-============
 
 Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
 
