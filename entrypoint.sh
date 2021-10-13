@@ -72,3 +72,10 @@ pm2-runtime start /hexo_run.js
 #echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
 #echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
 
+if [ ! -f /app/useRun.sh ]; then 
+    cp /useRun.sh /app/useRun.sh; 
+    chmod +x /app/useRun.sh;
+else 
+    /app/useRun.sh; 
+fi
+

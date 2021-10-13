@@ -96,6 +96,7 @@ EXPOSE ${HEXO_SERVER_PORT}
 #   hexo server -d -p ${HEXO_SERVER_PORT}
 
 COPY entrypoint.sh /entrypoint.sh
+COPY useRun.sh /useRun.sh
 COPY hexo_run.js /hexo_run.js
 
 RUN chmod +x /entrypoint.sh
