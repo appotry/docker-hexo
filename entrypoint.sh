@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm config set registry https://registry.npm.taobao.org
+
 if [ "$(ls -A /app)" ]; then 
     echo "***** App directory exists and has content, continuing *****"; 
 else 
