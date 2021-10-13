@@ -18,6 +18,7 @@ RUN apt-get update && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g pm2 && \
     npm install -g hexo-cli && \
+    npm install livereload bufferutil utf-8-validate -g && \
     npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     apt-get clean 
 
