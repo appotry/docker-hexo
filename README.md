@@ -6,6 +6,9 @@
 ## **完整使用教程**
 
 - [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
+- [Hexo中文文档](https://hexo.io/zh-cn/docs/)
+- [HexoAPI](https://hexo.io/zh-cn/api/)
+- [Hexo插件](https://hexo.io/plugins/)
 
 ## **Hexo 中文化环境配置**
 附加安装一大堆使用插件，并且下载Matery主题
