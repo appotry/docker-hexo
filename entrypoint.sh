@@ -1,37 +1,37 @@
 #!/bin/bash
 
-npm config set registry https://registry.npm.taobao.org
+cnpm config set registry https://registry.cnpm.taobao.org
 
 if [ "$(ls -A /app)" ]; then 
     echo "***** App directory exists and has content, continuing *****"; 
 else 
     echo "***** App directory is empty, initialising with hexo and hexo-admin *****" 
     hexo init 
-    npm install 
-    npm install --save hexo-admin 
-    npm install hexo-generator-search --save 
-    npm install hexo-deployer-git --save 
-    npm install hexo-generator-feed --save 
-    npm install hexo-generator-searchdb --save 
-    npm install hexo-wordcount --save 
-    npm install hexo-permalink-pinyin --save 
-    npm install hexo-filter-github-emojis --save 
-    npm install hexo-generator-sitemap --save 
-    npm install hexo-generator-baidu-sitemap --save 
-    npm install hexo-admonition --save 
-    npm install hexo-baidu-url-submit --save 
-    npm install hexo-related-popular-posts --save 
-    npm uninstall hexo-generator-index --save
-    npm install hexo-generator-index-pin-top --save 
-    npm i hexo-web-push-notification --save 
-    npm install highlight.js --save 
+    cnpm install 
+    cnpm install --save hexo-admin 
+    cnpm install hexo-generator-search --save 
+    cnpm install hexo-deployer-git --save 
+    cnpm install hexo-generator-feed --save 
+    cnpm install hexo-generator-searchdb --save 
+    cnpm install hexo-wordcount --save 
+    cnpm install hexo-permalink-pinyin --save 
+    cnpm install hexo-filter-github-emojis --save 
+    cnpm install hexo-generator-sitemap --save 
+    cnpm install hexo-generator-baidu-sitemap --save 
+    cnpm install hexo-admonition --save 
+    cnpm install hexo-baidu-url-submit --save 
+    cnpm install hexo-related-popular-posts --save 
+    cnpm install hexo-generator-index --save
+    #cnpm install hexo-generator-index-pin-top --save 
+    cnpm i hexo-web-push-notification --save 
+    cnpm install highlight.js --save 
     echo "install live2d and model weier" 
-    npm uninstall fsevents 
-    npm install fsevents --save 
+    cnpm uninstall fsevents 
+    cnpm install fsevents --save 
     echo "Please install browser plugin liveReload !" 
-    npm install livereload bufferutil utf-8-validate --save 
-    npm install hexo-helper-live2d --save 
-    npm install live2d-widget-model-lwet --save 
+    cnpm install livereload bufferutil utf-8-validate --save 
+    cnpm install hexo-helper-live2d --save 
+    cnpm install live2d-widget-model-lwet --save 
     echo "install hexo-theme-matery" 
     git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; 
 fi; 
@@ -39,8 +39,8 @@ fi;
 if [ ! -f /app/requirements.txt ]; then 
     echo "***** App directory contains no requirements.txt file, continuing *****"; 
 else 
-    echo "***** App directory contains a requirements.txt file, installing npm requirements *****"; 
-    cat /app/requirements.txt | xargs npm --prefer-offline install --save; 
+    echo "***** App directory contains a requirements.txt file, installing cnpm requirements *****"; 
+    cat /app/requirements.txt | xargs cnpm --prefer-offline install --save; 
 fi; 
 
 if [ "$(ls -A /app/.ssh 2>/dev/null)" ]; then 
