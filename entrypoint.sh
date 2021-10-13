@@ -63,8 +63,17 @@ chmod 700 ~/.ssh
 echo "***** Contents of public ssh key (for deploy) - *****" 
 cat ~/.ssh/id_rsa.pub 
 
+if [ ! -f /app/useRun.sh ]; then 
+    echo "cp useRun.sh"
+    cp /useRun.sh /app/useRun.sh; 
+    chmod +x /app/useRun.sh;
+    /app/useRun.sh; 
+else 
+    echo "run useRun.sh"
+    /app/useRun.sh; 
+fi
 
-echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
+#echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
 #hexo server -d -p ${HEXO_SERVER_PORT}
 
 pm2-runtime start /hexo_run.js
@@ -72,10 +81,5 @@ pm2-runtime start /hexo_run.js
 #echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
 #echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
 
-if [ ! -f /app/useRun.sh ]; then 
-    cp /useRun.sh /app/useRun.sh; 
-    chmod +x /app/useRun.sh;
-else 
-    /app/useRun.sh; 
-fi
+
 
