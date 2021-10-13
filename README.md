@@ -3,7 +3,11 @@
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
-# **Hexo 中文化环境配置**
+## **完整使用教程**
+
+- [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
+
+## **Hexo 中文化环境配置**
 附加安装一大堆使用插件，并且下载Matery主题
 
 Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
