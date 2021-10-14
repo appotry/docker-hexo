@@ -33,6 +33,7 @@ else
     #cnpm install livereload bufferutil utf-8-validate --save 
     #cnpm install hexo-helper-live2d --save 
     #cnpm install live2d-widget-model-lwet --save 
+    #cnpm install livereload bufferutil utf-8-validate --save
     #echo "install hexo-theme-matery" 
     #git clone https://github.com/blinkfox/hexo-theme-matery.git /app/themes/matery; 
 fi; 
