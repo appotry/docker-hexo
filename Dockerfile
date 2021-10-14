@@ -1,4 +1,4 @@
-FROM node:lts-slim
+FROM node:lastet
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
