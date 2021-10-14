@@ -1,4 +1,4 @@
-FROM node:lastet
+FROM node
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
