@@ -11,7 +11,7 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
 RUN apt-get update && \
-    apt-get install git curl vim procps locales -y && \
+    apt-get install git curl vim net-tools procps locales -y && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
     apt-get install yarn -y && \
