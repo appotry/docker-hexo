@@ -3,25 +3,6 @@
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
-
-## **Hexo 中文化环境配置**
-附加安装一大堆使用插件，并且下载Matery主题
-
-Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
-
-Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
-
-Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
-
-
-Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
-
-The image is available directly from [Docker Hub](https://hub.docker.com/r/bloodstar/hexo/)
-
-A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
-
-Latest update locks the node version to 13-slim rather than slim (which at the time of writing is 14), whilst Hexo appears to work for most areas, there is at present an outstanding issue that prevents the `hexo deploy` working with 14.  See [Hexo 4275]( https://github.com/hexojs/hexo/issues/4275)
-
 ## 开始使用
 
 ### Docker 版 hexo 环境一键部署
@@ -79,6 +60,24 @@ vi /app/useRun.sh
 - [Hexo中文文档](https://hexo.io/zh-cn/docs/)
 - [HexoAPI](https://hexo.io/zh-cn/api/)
 - [Hexo插件](https://hexo.io/plugins/)
+
+## **Hexo 中文化环境配置**
+附加安装一大堆使用插件，并且下载Matery主题
+
+Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
+
+Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
+
+Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
+
+
+Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
+
+The image is available directly from [Docker Hub](https://hub.docker.com/r/bloodstar/hexo/)
+
+A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
+
+Latest update locks the node version to 13-slim rather than slim (which at the time of writing is 14), whilst Hexo appears to work for most areas, there is at present an outstanding issue that prevents the `hexo deploy` working with 14.  See [Hexo 4275]( https://github.com/hexojs/hexo/issues/4275)
 
 ## Getting Started
 
