@@ -64,6 +64,15 @@ docker exec -it hexo bash
 
 然后就可以正常运行hexo的各种命令了，是不是非常简单？ 快来试试吧。
 
+#### 用户自动运行脚本
+
+> 用户可以在这里添加自动配置，自动安装插件，等各种启动docker运行的命令。
+
+```bash
+vi /app/useRun.sh
+```
+
+
 ### **完整使用教程**
 
 - [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
