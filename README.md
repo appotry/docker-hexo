@@ -3,12 +3,6 @@
 [![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
-## **完整使用教程**
-
-- [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
-- [Hexo中文文档](https://hexo.io/zh-cn/docs/)
-- [HexoAPI](https://hexo.io/zh-cn/api/)
-- [Hexo插件](https://hexo.io/plugins/)
 
 ## **Hexo 中文化环境配置**
 附加安装一大堆使用插件，并且下载Matery主题
@@ -27,6 +21,55 @@ The image is available directly from [Docker Hub](https://hub.docker.com/r/blood
 A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
 
 Latest update locks the node version to 13-slim rather than slim (which at the time of writing is 14), whilst Hexo appears to work for most areas, there is at present an outstanding issue that prevents the `hexo deploy` working with 14.  See [Hexo 4275]( https://github.com/hexojs/hexo/issues/4275)
+
+## 开始使用
+
+### Docker 版 hexo 环境一键部署
+
+> 博主开源定制，推荐使用！省去您大量环境配置时间。
+
+- [docker-hub](https://hub.docker.com/r/bloodstar/hexo)
+- [Github-hexo](https://github.com/appotry/docker-hexo)
+
+使用推荐Docker来搭配本文，阅读使用，将更省事，方便，快捷。hexo环境一键搞定！
+
+#### Docker一键安装
+
+```yaml
+docker create --name=hexo \
+-e HEXO_SERVER_PORT=4000 \
+-e GIT_USER="17lai" \
+-e GIT_EMAIL="17lai@domain.tld" \
+-v /mnt/blog.17lai.site:/app \
+-p 4000:4000 \
+bloodstar/hexo
+```
+
+#### ssh key 部署
+
+**Docker会自动随机生成ssh key** 在 /app/.ssh 目录下面。自动部署请把ssh key添加到github 等平台。
+
+[Github详细教程](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+> 1. 将**SSH** 公钥复制到剪贴板。 ...
+> 2. 在任何页面的右上角，单击您的个人资料照片，然后单击Settings（设置）。
+> 3. 在用户设置侧边栏中，单击**SSH** and GPG keys（**SSH** 和GPG 密钥）。
+> 4. 单击New **SSH** key（新**SSH** 密钥）或Add **SSH** key（添加**SSH** 密钥）。
+
+#### 进入docker
+
+```bash
+docker exec -it hexo bash
+```
+
+然后就可以正常运行hexo的各种命令了，是不是非常简单？ 快来试试吧。
+
+### **完整使用教程**
+
+- [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
+- [Hexo中文文档](https://hexo.io/zh-cn/docs/)
+- [HexoAPI](https://hexo.io/zh-cn/api/)
+- [Hexo插件](https://hexo.io/plugins/)
 
 ## Getting Started
 
