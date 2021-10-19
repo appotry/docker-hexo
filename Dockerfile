@@ -15,6 +15,7 @@ RUN apt-get update && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
     apt-get install yarn -y && \
+    yarn global add gulp && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g pm2 && \
     npm install -g hexo-cli && \
