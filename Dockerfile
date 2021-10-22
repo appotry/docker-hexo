@@ -14,13 +14,15 @@ RUN apt-get update && \
     apt-get install git curl vim net-tools lsof procps locales -y && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
-    apt-get install yarn -y && \
+    apt-get install yarn nasm -y && \
     yarn global add gulp && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g pm2 && \
     npm install -g hexo-cli && \
     npm install -g cnpm --registry=https://registry.npm.taobao.org && \
-    apt-get clean 
+    apt-get clean && \
+    yarn cache clean && \
+    npm cache clean --force
 
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
