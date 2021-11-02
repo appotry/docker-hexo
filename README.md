@@ -1,7 +1,7 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
-[![](https://images.microbadger.com/badges/version/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/spurin/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
-[![Build Status](https://img.shields.io/docker/cloud/build/spurin/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
+[![](https://images.microbadger.com/badges/version/bloodstar/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/bloodstar/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
+[![Build Status](https://img.shields.io/docker/cloud/build/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
 ## 开始使用
 
@@ -50,9 +50,8 @@ docker exec -it hexo bash
 > 用户可以在这里添加自动配置，自动安装插件，等各种启动docker运行的命令。
 
 ```bash
-vi /app/useRun.sh
+vi /app/userRun.sh
 ```
-
 
 ### **完整使用教程**
 
@@ -70,7 +69,6 @@ Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
 
 Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
 
-
 Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
 
 The image is available directly from [Docker Hub](https://hub.docker.com/r/bloodstar/hexo/)
@@ -83,7 +81,7 @@ Latest update locks the node version to 13-slim rather than slim (which at the t
 
 Create a new blog container, substitute *domain.com* for your domain and specify your blog location with -v target:/app, specify your git user and email address (for deployment):
 
-```
+```bash
 docker create --name=hexo-domain.com \
 -e HEXO_SERVER_PORT=4000 \
 -e GIT_USER="Your Name" \
@@ -95,7 +93,7 @@ bloodstar/hexo
 
 If a blog is not configured in /app (locally as /blog/domain.com) already, it will be created and Hexo-Admin will be installed into the blog as the container is started
 
-```
+```bash
 docker start hexo-domain.com
 ```
 
@@ -103,7 +101,7 @@ docker start hexo-domain.com
 
 Should you wish to perform further configuration, i.e. installing custom themes, this should be viable from the app specific volume, either directly or via the container (changes to the app volume are persistent).  Accessing the container -
 
-```
+```bash
 docker exec -it hexo-domain.com bash
 ```
 
@@ -111,7 +109,7 @@ docker exec -it hexo-domain.com bash
 
 Deployment keys are configured as part of the initial app configuration, see the .ssh directory within your app volume or, view the logs upon startup for the SSH public key
 
-```
+```bash
 docker logs --follow hexo-domain.com
 ```
 
@@ -119,32 +117,32 @@ docker logs --follow hexo-domain.com
 
 Each theme will vary but for example, a theme such as [Hueman](https://github.com/ppoffice/hexo-theme-hueman), clone the repository to the themes directory within the app volume
 
-```
+```bash
 cd /app
 git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman
 ```
 
 Update _config.yml in your app folder, and change theme accordingly
 
-```
+```bash
 theme: hueman
 ```
 
 Enable the default configuration
 
-```
+```bash
 mv themes/hueman/_config.yml.example themes/hueman/_config.yml
 ```
 
 Exit the container
 
-```
+```bash
 exit
 ```
 
 And restart the container
 
-```
+```bash
 docker restart hexo-domain.com
 ```
 
@@ -158,13 +156,13 @@ Access Hexo-Admin at http://< ip_address >:4000/admin
 
 ## Generating Content
 
-```
+```bash
 docker exec -it hexo-domain.com hexo generate
 ```
 
 ## Deploying Generated Content
 
-```
+```bash
 docker exec -it hexo-domain.com hexo deploy
 ```
 
@@ -172,7 +170,7 @@ docker exec -it hexo-domain.com hexo deploy
 
 If you wish to add specific hexo plugins, add them to a requirements.txt file to your app volume, for example (app/requirements.txt) -
 
-```
+```bash
 hexo-generator-json-content
 ```
 

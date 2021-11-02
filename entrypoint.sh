@@ -1,4 +1,4 @@
-#!/bin/bash
+userRun#!/bin/bash
 
 cnpm config set registry https://registry.cnpm.taobao.org
 
@@ -68,14 +68,14 @@ chmod 700 ~/.ssh
 echo "***** Contents of public ssh key (for deploy) - *****" 
 cat ~/.ssh/id_rsa.pub 
 
-if [ ! -f /app/useRun.sh ]; then 
-    echo "cp useRun.sh"
-    cp /useRun.sh /app/useRun.sh; 
-    chmod +x /app/useRun.sh;
-    /app/useRun.sh; 
+if [ ! -f /app/userRun.sh ]; then 
+    echo "cp userRun.sh"
+    cp /userRun.sh /app/userRun.sh; 
+    chmod +x /app/userRun.sh;
+    /app/userRun.sh; 
 else 
-    echo "run useRun.sh"
-    /app/useRun.sh; 
+    echo "run userRun.sh"
+    /app/userRun.sh; 
 fi
 
 #echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
