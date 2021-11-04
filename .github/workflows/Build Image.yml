@@ -5,6 +5,12 @@ on:
     branches:
       - main
       - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # UTC 17:00 -> CST (China) 1:00, see https://datetime360.com/cn/utc-cst-china-time/
+    - cron: '0 17 * * *'
+    # 每月最后一天10:15分运行
+    #- cron: '0 15 10 L * ?'
   workflow_dispatch:
 
 jobs:
