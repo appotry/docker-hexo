@@ -1,6 +1,6 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
-[![](https://images.microbadger.com/badges/version/bloodstar/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/bloodstar/hexo.svg)](https://microbadger.com/images/spurin/hexo "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/bloodstar/hexo.svg)](https://microbadger.com/images/bloodstar/hexo "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/bloodstar/hexo.svg)](https://microbadger.com/images/bloodstar/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
 ## 开始使用
