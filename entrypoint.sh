@@ -1,4 +1,4 @@
-userRun#!/bin/bash
+#!/bin/bash
 
 cnpm config set registry https://registry.cnpm.taobao.org
 
