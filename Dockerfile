@@ -2,6 +2,10 @@ FROM node:slim
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
+LABEL maintainer="andycrusoe@gmail.com"
+LABEL repository="https://github.com/appotry/docker-hexo"
+LABEL homepage="https://blog.17lai.site"
+
 # Set the server port as an environmental
 ENV HEXO_SERVER_PORT=4000
 
@@ -11,11 +15,11 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
 RUN apt-get update && \
-    apt-get install git git-lfs curl vim net-tools lsof procps locales -y && \
+    apt-get install -y --no-install-recommends git git-lfs curl vim net-tools lsof procps locales ca-certificates openssl openssh-client && \
     git lfs install && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
-    apt-get install yarn nasm -y && \
+    apt-get install -y --no-install-recommends yarn nasm && \
     yarn global add gulp && \
     npm config set registry https://registry.npm.taobao.org && \
     npm install -g pm2 && \
