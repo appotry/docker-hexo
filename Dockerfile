@@ -6,7 +6,7 @@ MAINTAINER appotry <andycrusoe@gmail.com>
 ENV HEXO_SERVER_PORT=4000
 
 # Set the git username and email
-ENV GIT_USER="andy"
+ENV GIT_USER="appotry"
 ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
