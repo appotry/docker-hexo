@@ -15,7 +15,7 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git git-lfs curl vim net-tools lsof procps locales ca-certificates openssl openssh-client && \
+    apt-get install -y --no-install-recommends git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates openssl openssh-client && \
     git lfs install && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
@@ -28,6 +28,26 @@ RUN apt-get update && \
     apt-get clean && \
     yarn cache clean && \
     npm cache clean --force
+
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
+    apt-get update && \
+    apt-get -y \
+        install \
+        --no-install-recommends \
+        wget \
+        dos2unix \
+        build-essential \
+        autoconf \
+        automake \
+        gettext \
+        libtool \
+        pkg-config \
+        gettext \
+        libpng-dev \
+        gh && \
+    apt-get clean
+
 
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
