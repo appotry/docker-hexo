@@ -55,7 +55,7 @@ vi /app/userRun.sh
 
 ### **完整使用教程**
 
-- [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/hexo/2021-09-10-use-hexo-and-matery-to-make-a-perfect-blog/)
+- [基于Hexo的matery主题搭建博客并深度优化](https://blog.17lai.site/posts/40300608/)
 - [Hexo中文文档](https://hexo.io/zh-cn/docs/)
 - [HexoAPI](https://hexo.io/zh-cn/api/)
 - [Hexo插件](https://hexo.io/plugins/)
