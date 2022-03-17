@@ -22,7 +22,7 @@ else
     #cnpm install hexo-baidu-url-submit --save 
     cnpm install hexo-related-popular-posts --save 
     cnpm install hexo-generator-index --save
-    cnpm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean --save
+    cnpm install gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean --save
     #cnpm install hexo-generator-index-pin-top --save 
     #cnpm install hexo-offline --save 
     #cnpm install hexo-web-push-notification --save 
