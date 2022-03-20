@@ -15,14 +15,14 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 
 # Install requirements
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates openssl openssh-client && \
+    apt-get install -y --no-install-recommends git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates openssl openssh-client jq && \
     git lfs install && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
     apt-get install -y --no-install-recommends yarn nasm && \
     yarn global add gulp && \
     npm config set registry https://registry.npm.taobao.org && \
-    npm install -g pm2 && \
+    npm install -g pm2 npm-check && \
     npm install -g hexo-cli && \
     npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     apt-get clean && \
