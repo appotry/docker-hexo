@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
+#hexo server -d -p ${HEXO_SERVER_PORT}
+
+pm2-runtime start /hexo_run.js
+
+echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
+echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
+
+
 cnpm config set registry https://registry.cnpm.taobao.org
 
 if [ "$(ls -A /app)" ]; then 
@@ -8,21 +17,19 @@ else
     echo "***** App directory is empty, initialising with hexo and hexo-admin *****" 
     hexo init 
     cnpm install 
-    cnpm install --save hexo-admin 
-    cnpm install hexo-generator-search --save 
-    cnpm install hexo-deployer-git --save 
-    cnpm install hexo-generator-feed --save 
-    cnpm install hexo-generator-searchdb --save 
-    cnpm install hexo-wordcount --save 
-    cnpm install hexo-permalink-pinyin --save 
-    cnpm install hexo-filter-github-emojis --save 
-    cnpm install hexo-generator-sitemap --save 
-    cnpm install hexo-generator-baidu-sitemap --save 
-    cnpm install hexo-admonition --save 
-    #cnpm install hexo-baidu-url-submit --save 
-    cnpm install hexo-related-popular-posts --save 
-    cnpm install hexo-generator-index --save
-    cnpm install gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean --save
+    cnpm install --save \
+        hexo-generator-search \
+        hexo-deployer-git \
+        hexo-generator-feed \
+        hexo-generator-searchdb \
+        hexo-wordcount \
+        hexo-filter-github-emojis \
+        hexo-generator-sitemap \
+        hexo-admonition \
+        hexo-generator-index \
+        gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean 
+        hexo-generator-search
+        
     #cnpm install hexo-generator-index-pin-top --save 
     #cnpm install hexo-offline --save 
     #cnpm install hexo-web-push-notification --save 
@@ -77,14 +84,4 @@ else
     echo "run userRun.sh"
     /app/userRun.sh; 
 fi
-
-#echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
-#hexo server -d -p ${HEXO_SERVER_PORT}
-
-pm2-runtime start /hexo_run.js
-
-#echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
-#echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
-
-
 
