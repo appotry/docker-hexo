@@ -19,6 +19,7 @@ else
     cnpm install 
     cnpm install --save \
         hexo-generator-searchdb \
+        hexo-admin \
         hexo-deployer-git \
         hexo-generator-feed \
         hexo-wordcount \
