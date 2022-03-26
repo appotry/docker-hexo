@@ -21,14 +21,12 @@ else
         hexo-generator-search \
         hexo-deployer-git \
         hexo-generator-feed \
-        hexo-generator-searchdb \
         hexo-wordcount \
         hexo-filter-github-emojis \
         hexo-generator-sitemap \
         hexo-admonition \
         hexo-generator-index \
         gulp-clean-css gulp-uglify gulp-htmlmin gulp-htmlclean 
-        hexo-generator-search
         
     #cnpm install hexo-generator-index-pin-top --save 
     #cnpm install hexo-offline --save 
