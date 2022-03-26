@@ -53,6 +53,16 @@ ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
 ENV LC_ALL zh_CN.UTF-8
 
+RUN echo 'hexo' > /etc/hostname && \
+    echo 'export PS1="\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\\$ "' >> /etc/profile && \
+    echo "alias ll='ls -laFh'" >> /etc/profile && \
+    echo "alias ls='/bin/ls -F --color=auto'" >> /etc/profile && \
+    echo "欢迎使用Hexo Docker 开源集成开发环境"  >> /etc/motd && \
+    echo "Github: https://github.com/appotry/docker-hexo"  >> /etc/motd && \
+    echo "Dockerhub: https://hub.docker.com/r/bloodstar/hexo"  >> /etc/motd && \
+    echo "作者使用教程： https://blog.17lai.site/posts/40300608"  >> /etc/motd && \
+    echo "祝您使用愉快！"  >> /etc/motd 
+    
 # Set workdir
 WORKDIR /app
 
