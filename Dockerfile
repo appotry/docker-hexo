@@ -22,7 +22,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends yarn nasm && \
     yarn global add gulp && \
     npm config set registry https://registry.npm.taobao.org && \
-    npm install -g pm2 npm-check && \
+    npm install -g pm2 nrm npm-check && \
     npm install -g hexo-cli && \
     npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     apt-get clean && \
