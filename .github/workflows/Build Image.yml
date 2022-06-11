@@ -55,6 +55,6 @@ jobs:
           # platforms: linux/amd64
           push: true
           tags: |
-            bloodstar/freenav:stable-${{ steps.set-version.outputs.version }}
-            bloodstar/freenav:latest
+            bloodstar/hexo:stable-${{ steps.set-version.outputs.version }}
+            bloodstar/hexo:latest
 
