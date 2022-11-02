@@ -11,7 +11,7 @@
 
 - [docker-hub](https://hub.docker.com/r/bloodstar/hexo)
 - [Github-hexo](https://github.com/appotry/docker-hexo)
-- 效果演示 [博客《夜法之书》](https://blog.17lai.site/)
+- 效果演示 <a title="My Blog Site" target="_blank" href="https://blog.17lai.site/"><img src="https://img.shields.io/badge/%E5%A4%9C%E6%B3%95%E4%B9%8B%E4%B9%A6%E5%8D%9A%E5%AE%A2%20(blog)-blog.17lai.site-orange" /></a>
 
 使用推荐Docker来搭配本文，阅读使用，将更省事，方便，快捷。hexo环境一键搞定！
 
