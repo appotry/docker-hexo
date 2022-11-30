@@ -41,13 +41,10 @@ jobs:
       - name: Set Version
         id: set-version
         run: |
-          echo "::set-output name=version::$(date +"%y-%m-%d")"
-          echo $(date +"%y-%m-%d")
-          echo "::set-output name=status::success"
+          echo "version=`date +'%y-%m-%d'`" >> $GITHUB_ENV
           
       # Build and push
       - name: Build dockerfile
-        if: steps.set-version.outputs.status == 'success'
         uses: docker/build-push-action@v3
         with:
           file: ./Dockerfile
@@ -55,6 +52,6 @@ jobs:
           # platforms: linux/amd64
           push: true
           tags: |
-            bloodstar/hexo:stable-${{ steps.set-version.outputs.version }}
+            bloodstar/hexo:stable-${{ env.version }}
             bloodstar/hexo:latest
 
