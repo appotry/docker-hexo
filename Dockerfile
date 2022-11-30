@@ -21,10 +21,10 @@ RUN apt-get update && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
     apt-get install -y --no-install-recommends yarn nasm && \
     yarn global add gulp && \
-    npm config set registry https://registry.npm.taobao.org && \
+    npm config set registry https://registry.npmmirror.com && \
     npm install -g pm2 nrm npm-check && \
     npm install -g hexo-cli && \
-    npm install -g cnpm --registry=https://registry.npm.taobao.org && \
+    npm install -g cnpm --registry=https://registry.npmmirror.com && \
     apt-get clean && \
     yarn cache clean && \
     npm cache clean --force
