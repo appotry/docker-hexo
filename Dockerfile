@@ -16,7 +16,6 @@ ENV GIT_EMAIL="andycrusoe@gmail.com"
 # Install requirements
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates openssl openssh-client jq && \
-    git lfs install && \
     locale-gen zh_CN && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
     apt-get install -y --no-install-recommends yarn nasm && \
