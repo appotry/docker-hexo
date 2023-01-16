@@ -48,6 +48,30 @@ docker exec -it hexo bash
 
 然后就可以正常运行hexo的各种命令了，是不是非常简单？ 快来试试吧。
 
+#### 常用命令
+
+```bash
+hexo server #启动本地服务器，用于预览主题。Hexo 会监视文件变动并自动更新，除修改站点配置文件外,无须重启服务器,直接刷新网页即可生效。
+hexo server -s #以静态模式启动
+hexo server -p 4000 #更改访问端口 (默认端口为 5000，’ctrl + c’关闭 server)
+hexo server -i IP地址 #自定义 IP
+hexo clean #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的 public 文件夹
+hexo g #生成静态网页 (执行 $ hexo g后会在站点根目录下生成 public 文件夹, hexo 会将”/blog/source/“ 下面的.md 后缀的文件编译为.html 后缀的文件,存放在”/blog/public/ “ 路径下)
+hexo d #自动生成网站静态文件，并将本地数据部署到设定的仓库(如 github)
+hexo init 文件夹名称 #初始化 XX 文件夹名称
+npm update hexo -g#升级
+npm install hexo -g #安装
+node -v #查看 node.js 版本号
+npm -v #查看 npm 版本号
+git --version #查看 git 版本号
+hexo -v #查看 hexo 版本号
+hexo new page “music” #新增页面music
+hexo new post “文章名称” #新增文章
+```
+
+更详细教程戳这里 [Hexo入门篇](https://blog.17lai.site/posts/40300608/#Hexo%E5%85%A5%E9%97%A8%E7%AF%87)
+
+
 #### 用户自动运行脚本
 
 > 用户可以在这里添加自动配置，自动安装插件，等各种启动docker运行的命令。
