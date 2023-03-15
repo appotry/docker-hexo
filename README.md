@@ -15,7 +15,7 @@
 
 使用推荐Docker来搭配本文，阅读使用，将更省事，方便，快捷。hexo环境一键搞定！
 
-[![夜法之书博客](https://cimg1.17lai.site/data/2022/03/2720220327072647.png)](https://blog.17lai.site/)
+[![夜法之书博客](https://cimg1.17lai.fun/data/2023/03/14/20230314054551.webp)](https://blog.17lai.site/)
 
 #### Docker一键安装
 
