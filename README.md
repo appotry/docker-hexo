@@ -19,7 +19,7 @@
 
 #### Docker一键安装
 
-```yaml
+```bash
 docker create --name=hexo \
 -e HEXO_SERVER_PORT=4000 \
 -e GIT_USER="17lai" \
@@ -28,6 +28,46 @@ docker create --name=hexo \
 -p 4000:4000 \
 bloodstar/hexo
 ```
+#### docker compose 
+
+> 推荐使用 docker compose 来管理docker
+
+```yaml
+version: '3'
+services:
+
+  hexo:
+    container_name: hexo
+    image: bloodstar/hexo:latest
+    hostname: hexo
+    ports:
+      - "7800:4000"
+    volumes:
+      - ${USERDIR}/hexo/blog:/app
+    env_file:
+      - .env  # 部分公用环境变量放到这里，以是的多个docker之间共享环境变量
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - GIT_USER="appotry"
+      - GIT_EMAIL="andycrusoe@gmail.com"
+      
+      # 主要为了内部npm网络访问顺利
+      # - HTTP_PROXY=http://192.168.0.100:1089
+      # - HTTPS_PROXY=http://192.168.0.100:1089
+    restart: always
+```
+
+#### 环境变量
+
+
+| 环境变量         | 作用                                |
+| ---------------- | ----------------------------------- |
+| HEXO_SERVER_PORT | pm2 http 服务器运行端口，默认是4000 |
+| GIT_USER         | git 环境变量用户名                  |
+| GIT_EMAIL        | git 环境变量邮箱                    |
+
 
 #### ssh key 部署
 
@@ -78,6 +118,59 @@ hexo new post “文章名称” #新增文章
 
 ```bash
 vi /app/userRun.sh
+```
+
+`/app/userRun.sh` 示例
+
+```bash
+#!/bin/bash
+
+echo "add User CMD here!"
+
+echo "=====User CMD Start!====="
+# 快速添加登录github秘钥
+alias github='eval "$(/usr/bin/ssh-agent -s)";/usr/bin/ssh-add ~/.ssh/id_rsa'
+# 重启内部pm2 服务器
+alias repm2='pm2 restart /hexo_run.js'
+
+#### debian 中国区加速
+# 如果网络速度快，可以注释
+sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
+#### npm 配置
+npm config ls -l
+
+mkdir -p /app/.cache/npm
+npm config set cache "/app/.cache/npm" 
+# npm config set userconfig "/app/.npmrc"
+# npm config set registry https://registry.npmmirror.com
+
+npm config set registry https://registry.npmjs.org/
+
+#### history 持久化
+rm -rfv ~/.bash_history
+ln -s /app/.bash_history ~/.bash_history
+
+#### ssh 配置
+#### 避免 "Are you sure you want to continue connecting (yes/no)? yes"
+chmod 600 /app/.ssh/id_rsa 
+chmod 644 /app/.ssh/id_rsa.pub 
+chmod 700 /app/.ssh 
+rm -rfv ~/.ssh
+ln -s /app/.ssh ~/.ssh
+
+#### npm 插件安装
+# 这里用户可以修改自定义安装
+npm install --save \
+    hexo-admin \
+    hexo-include-markdown \
+    hexo-douban-card-new \
+    hexo-github-card \
+    hexo-bilibili-card-new \
+    hexo-feed 
+
+echo "=====User CMD end!====="
+
 ```
 
 ### **完整使用教程**
