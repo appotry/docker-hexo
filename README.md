@@ -173,6 +173,17 @@ echo "=====User CMD end!====="
 
 ```
 
+设置代理
+```bash
+# 如果网络访问不顺利，可以在访问网络之前添加代理
+
+# 命令行使用代理的方法
+export http_proxy=http://192.168.0.100:1089;export https_proxy=http://192.168.0.100:1089
+
+# 使用docker host name 来访问代理，不用IP
+export http_proxy=http://xray:1089;export https_proxy=http://xray:1089
+```
+
 ### **完整使用教程**
 
 - [Hexo Docker环境与Hexo基础配置篇](https://blog.17lai.site/posts/40300608/)
