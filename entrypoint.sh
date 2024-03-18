@@ -9,7 +9,7 @@ echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****"
 echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
 
 
-cnpm config set registry https://registry.cnpm.taobao.org
+cnpm config set registry http://registry.npmjs.org
 
 if [ "$(ls -A /app)" ]; then 
     echo "***** App directory exists and has content, continuing *****"; 
