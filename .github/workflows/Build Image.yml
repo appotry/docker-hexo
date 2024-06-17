@@ -47,7 +47,7 @@ jobs:
           
       # Build and push
       - name: Build dockerfile
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v7
