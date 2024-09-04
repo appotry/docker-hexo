@@ -50,8 +50,8 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - GIT_USER="appotry"
-      - GIT_EMAIL="andycrusoe@gmail.com"
+      - GIT_USER="yourName"
+      - GIT_EMAIL="youID@gmail.com"
       
       # 主要为了内部npm网络访问顺利
       # - HTTP_PROXY=http://192.168.0.100:1089
