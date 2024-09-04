@@ -3,6 +3,10 @@
 [![](https://images.microbadger.com/badges/image/bloodstar/hexo.svg)](https://microbadger.com/images/bloodstar/hexo "Get your own image badge on microbadger.com")
 [![Build Status](https://img.shields.io/docker/cloud/build/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
 
+> 为什么推荐每个人都自建一个独立博客网站？
+> - 一个自我展示的名片！
+> - 最大的言论自由，不被任何外人以及公司审查删帖封号！
+
 ## 开始使用
 
 ### Docker 版 hexo 环境一键部署
