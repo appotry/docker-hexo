@@ -88,6 +88,16 @@ docker exec -it hexo bash
 
 然后就可以正常运行hexo的各种命令了，是不是非常简单？ 快来试试吧。
 
+#### 配置主题
+
+不同人的审美不一样，喜欢不同的主题，这里推荐几个主题
+
+- [Matery](https://github.com/blinkfox/hexo-theme-matery)
+- [Fluid](https://github.com/fluid-dev/hexo-theme-fluid)
+- [butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
+
+下载好主题后，按照不同的主题使用说明，配置对应的配置文件，然后编译项目 `hexo g` ，编译完之后，就可以通过浏览器访问地址 [docker IP]:4000 当方式看到网页了！
+
 #### 常用命令
 
 ```bash
