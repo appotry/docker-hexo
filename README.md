@@ -45,7 +45,7 @@ services:
     volumes:
       - ${USERDIR}/hexo/blog:/app
     env_file:
-      - .env  # 部分公用环境变量放到这里，以是的多个docker之间共享环境变量
+      - .env  # 部分公用环境变量放到这里，以使得多个docker之间共享环境变量
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -57,6 +57,18 @@ services:
       # - HTTP_PROXY=http://192.168.0.100:1089
       # - HTTPS_PROXY=http://192.168.0.100:1089
     restart: always
+```
+
+.env 文件示例
+
+```ini
+# Copy this file to .env before building the container.
+# Put any local modifications here.
+
+PUID=1000
+PGID=1000
+TZ="Asia/Shanghai"
+USERDIR="/share/Container"
 ```
 
 #### 环境变量
