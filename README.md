@@ -110,7 +110,8 @@ docker exec -it hexo bash
 
 - [Matery](https://github.com/blinkfox/hexo-theme-matery)
 - [Fluid](https://github.com/fluid-dev/hexo-theme-fluid)
-- [butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
+- [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
+- [Next](https://theme-next.js.org/)
 
 下载好主题后，按照不同的主题使用说明，配置对应的配置文件，然后编译项目 `hexo g` ，编译完之后，就可以通过浏览器访问地址 [docker IP]:4000 当方式看到网页了！
 
