@@ -7,6 +7,11 @@
 > - 一个自我展示的名片！
 > - 最大的言论自由，不被任何外人以及公司审查删帖封号！
 
+> Why is it recommended for everyone to build their own independent blog website?
+>
+> - It serves as a personal business card for self-presentation!
+> - It offers the utmost freedom of speech without being subject to censorship, post deletion, or account suspension by outsiders or companies!
+
 ## 开始使用
 
 ### Docker 版 hexo 环境一键部署
