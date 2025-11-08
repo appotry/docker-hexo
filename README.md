@@ -212,8 +212,22 @@ echo "=====User CMD end!====="
 # 命令行使用代理的方法
 export http_proxy=http://192.168.0.100:1089;export https_proxy=http://192.168.0.100:1089
 
-# 使用docker host name 来访问代理，不用IP
+# 使用docker host name 来访问代理，不用IP。更推荐这种方式，使用 docker 内部的 dns 需找目标
 export http_proxy=http://xray:1089;export https_proxy=http://xray:1089
+```
+
+### 实时预览修改
+
+hexo 支持实时预览修改效果，文章主题的修改，都可以通过web服务立刻看到效果。
+
+如果你发现了修改没有立刻生效，可能是 node 缓存还在，可以使用下面方法重启 web 服务
+
+```bash
+# 重启 pm2
+pm2 restart /hexo_run.js
+
+# 重启 hexo docker
+docker restart hexo
 ```
 
 ### **完整使用教程**
