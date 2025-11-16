@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:latest
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
