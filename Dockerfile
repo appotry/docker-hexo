@@ -1,4 +1,5 @@
-FROM node:latest
+# FROM node:latest
+FROM node:20-slim
 
 MAINTAINER appotry <andycrusoe@gmail.com>
 
@@ -13,20 +14,27 @@ ENV HEXO_SERVER_PORT=4000
 ENV GIT_USER="appotry"
 ENV GIT_EMAIL="andycrusoe@gmail.com"
 
-# Install requirements
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates openssl openssh-client jq && \
-    locale-gen zh_CN && \
-    localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && \
-    apt-get install -y --no-install-recommends yarn nasm && \
+# 设置语言环境
+ENV LANG=zh_CN.UTF-8 \
+    LANGUAGE=zh_CN:zh \
+    LC_ALL=zh_CN.UTF-8
+
+# 安装基础依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git git-lfs curl gpg vim net-tools lsof procps locales ca-certificates \
+    openssl openssh-client jq wget dos2unix build-essential autoconf automake \
+    gettext libtool pkg-config libpng-dev gnupg2 && \
+    # 生成中文UTF-8 locale
+    sed -i '/zh_CN.UTF-8/s/^# //' /etc/locale.gen && \
+    locale-gen zh_CN.UTF-8 && \
+    update-locale LANG=zh_CN.UTF-8 && \
+    # 安装 yarn
+    npm install -g yarn && \
     yarn global add gulp && \
+    # npm 全局依赖
     npm config set registry https://registry.npmmirror.com && \
-    npm install -g pm2 nrm npm-check && \
-    npm install -g hexo-cli && \
-    npm install -g cnpm --registry=https://registry.npmmirror.com && \
-    apt-get clean && \
-    yarn cache clean && \
-    npm cache clean --force
+    npm install -g pm2 nrm npm-check hexo-cli cnpm && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
