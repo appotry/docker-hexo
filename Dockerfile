@@ -28,8 +28,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sed -i '/zh_CN.UTF-8/s/^# //' /etc/locale.gen && \
     locale-gen zh_CN.UTF-8 && \
     update-locale LANG=zh_CN.UTF-8 && \
-    # 安装 yarn
-    npm install -g yarn && \
+    # yarn
+    corepack enable && \
     yarn global add gulp && \
     # npm 全局依赖
     npm config set registry https://registry.npmmirror.com && \
