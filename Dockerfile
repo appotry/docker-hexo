@@ -1,7 +1,5 @@
 # FROM node:latest
-FROM node:20-slim
-
-MAINTAINER appotry <andycrusoe@gmail.com>
+FROM node:22-bookworm-slim
 
 LABEL maintainer="andycrusoe@gmail.com"
 LABEL repository="https://github.com/appotry/docker-hexo"
@@ -28,9 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sed -i '/zh_CN.UTF-8/s/^# //' /etc/locale.gen && \
     locale-gen zh_CN.UTF-8 && \
     update-locale LANG=zh_CN.UTF-8 && \
-    # yarn
-    corepack enable && \
-    yarn global add gulp && \
+    npm install -g gulp && \
     # npm 全局依赖
     npm config set registry https://registry.npmmirror.com && \
     npm install -g pm2 nrm npm-check hexo-cli cnpm && \
@@ -54,11 +50,6 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | g
         libpng-dev \
         gh && \
     apt-get clean
-
-
-ENV LANG zh_CN.UTF-8
-ENV LANGUAGE zh_CN.UTF-8
-ENV LC_ALL zh_CN.UTF-8
 
 RUN echo 'hexo' > /etc/hostname && \
     echo 'export PS1="\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\\$ "' >> /etc/profile && \
