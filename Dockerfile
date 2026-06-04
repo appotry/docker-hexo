@@ -1,5 +1,5 @@
 # FROM node:latest
-FROM node:22-bookworm-slim
+FROM node:20-slim
 
 LABEL maintainer="andycrusoe@gmail.com"
 LABEL repository="https://github.com/appotry/docker-hexo"
