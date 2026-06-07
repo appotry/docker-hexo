@@ -92,6 +92,7 @@ type(scope): 简短描述（50 字以内）
 | `docs/REQUIREMENTS.md` | 需求说明、功能与非功能需求 |
 | `docs/TESTING.md` | 测试策略、Docker 构建验证方法 |
 | `docs/CHANGELOG.md` | 版本变更历史 |
+| `DOCKER_README.md` | Docker Hub 专用 README（全 GitHub 域名引用） |
 
 ## 经验知识库
 
@@ -101,6 +102,7 @@ type(scope): 简短描述（50 字以内）
 
 相关经验：
 - `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建
+- `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范
 - `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略
 - `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具在开源仓库中的应用
 - `05-ci-cd/06-github-workflow-efficiency.md` — GitHub Actions 效率工作流
