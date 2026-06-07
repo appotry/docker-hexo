@@ -48,4 +48,21 @@ CI 工作流（`.github/workflows/Build Image.yml`）不会运行上述测试，
 
 ## 自动化测试脚本
 
-参见 `tests/docker_test.sh`。
+参见 `tests/docker_test.sh`，执行后生成测试报告到 `test-reports/` 目录。
+
+```bash
+bash tests/docker_test.sh
+cat test-reports/report-*.md
+```
+
+## 测试报告
+
+每次运行测试脚本后，会在 `test-reports/` 目录生成结构化 Markdown 报告，包含：
+
+- 测试时间和环境
+- 逐项测试结果（构建、HTTP、进程）
+- 镜像信息（大小、创建时间）
+- 容器内软件版本（Node.js、npm、Git）
+- 总结统计（通过/失败计数）
+
+示例报告见 `test-reports/report-20260608-013116.md`。

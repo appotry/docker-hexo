@@ -5,6 +5,7 @@ AGENTS.md
 README*.md
 docs/
 tests/
+test-reports/
 renovate.json
 .github/
 *.md
