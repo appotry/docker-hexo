@@ -43,6 +43,9 @@
 - **所需 Secret**：`DOCKER_USERNAME`、`DOCKER_PASSWORD`
 - **Renovate**：`renovate.json` 启用 base 配置自动更新
 - **Dependabot**：每日扫描 Docker 依赖（`.github/dependabot.yml`）
+- **Stale**：自动标记 60 天无活动 Issue/PR（`.github/workflows/stale.yml`）
+- **Labeler**：根据文件路径自动为 PR 打标签（`.github/workflows/label.yml`）
+- **Greetings**：首次贡献者自动欢迎（`.github/workflows/greetings.yml`）
 
 ## 工程化约定
 
@@ -99,6 +102,9 @@ type(scope): 简短描述（50 字以内）
 相关经验：
 - `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建
 - `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略
+- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具在开源仓库中的应用
+- `05-ci-cd/06-github-workflow-efficiency.md` — GitHub Actions 效率工作流
+- `08-testing/05-test-report-analysis-workflow.md` — 测试报告分析与失败处理规范
 - `99-general/14-docker-standards.md` — Dockerfile 编码规范
 - `99-general/07-documentation-writing-standards.md` — Hexo 兼容的 LaTeX/Mermaid 语法
 - `99-general/18-gh-cli-setup.md` — gh CLI Token 配置

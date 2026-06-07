@@ -1,0 +1,20 @@
+name: Stale
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 60
+          days-before-close: 7
+          stale-issue-message: >
+            此 Issue 已 60 天无活动，将自动关闭。如果仍需跟进，请回复以保持开放。
+          stale-pr-message: >
+            此 PR 已 60 天无活动，将自动关闭。如果仍需推进，请回复以保持开放。
+          close-issue-message: "因长期无活动自动关闭。如有需要，请重新打开。"
+          close-pr-message: "因长期无活动自动关闭。如有需要，请重新打开。"

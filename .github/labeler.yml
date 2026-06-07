@@ -1,0 +1,21 @@
+# Auto-label PRs based on changed file paths
+
+Dockerfile:
+  - Dockerfile
+  - entrypoint.sh
+  - hexo_run.js
+  - userRun.sh
+
+documentation:
+  - docs/**/*
+  - AGENTS.md
+  - README*.md
+
+ci:
+  - .github/**/*
+
+tests:
+  - tests/**/*
+
+i18n:
+  - README.*.md
