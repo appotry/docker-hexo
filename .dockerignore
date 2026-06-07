@@ -1,0 +1,10 @@
+.git/
+.gitignore
+.dockerignore
+AGENTS.md
+README*.md
+docs/
+tests/
+renovate.json
+.github/
+*.md

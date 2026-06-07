@@ -10,12 +10,6 @@ on:
   release:
     types: [published]
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    # UTC 17:00 -> CST (China) 1:00, see https://datetime360.com/cn/utc-cst-china-time/
-    # - cron: '0 17 * * *'
-    # 每月最后一天10:15分运行
-    # - cron: '0 15 10 L * ?'
-    # 每月第一天0:0分运行
     - cron: '0 0 1 * *'
   workflow_dispatch:
 
@@ -26,7 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # Docker Image 构建环境
+      - name: Get hexo version
+        id: hexo-version
+        run: |
+          HEXO_VER=$(npm view hexo version 2>/dev/null)
+          echo "version=$HEXO_VER" >> $GITHUB_OUTPUT
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
 
@@ -34,26 +33,18 @@ jobs:
         uses: docker/setup-buildx-action@v4
 
       - name: Login to DockerHub
-        uses: docker/login-action@v4 
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # ReleaseTag
-      - name: Set Version
-        id: set-version
-        run: |
-          echo "version=`date +'%y-%m-%d'`" >> $GITHUB_ENV
-          
-      # Build and push
-      - name: Build dockerfile
+      - name: Build and push
         uses: docker/build-push-action@v7
         with:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          # platforms: linux/amd64
           push: true
           tags: |
-            bloodstar/hexo:stable-${{ env.version }}
             bloodstar/hexo:latest
-
+            bloodstar/hexo:node20
+            bloodstar/hexo:${{ steps.hexo-version.outputs.version }}-node20

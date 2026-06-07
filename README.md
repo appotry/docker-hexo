@@ -1,50 +1,44 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
-[![](https://images.microbadger.com/badges/version/bloodstar/hexo.svg)](https://microbadger.com/images/bloodstar/hexo "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/bloodstar/hexo.svg)](https://microbadger.com/images/bloodstar/hexo "Get your own image badge on microbadger.com")
-[![Build Status](https://img.shields.io/docker/cloud/build/bloodstar/hexo.svg)](https://hub.docker.com/r/bloodstar/hexo/)
+[![Docker Image Version](https://img.shields.io/docker/v/bloodstar/hexo)](https://hub.docker.com/r/bloodstar/hexo/)
+[![Build Status](https://github.com/appotry/docker-hexo/actions/workflows/Build%20Image.yml/badge.svg)](https://github.com/appotry/docker-hexo/actions/workflows/Build%20Image.yml)
+
+# docker-hexo
+
+**Hexo 博客环境的 Docker 镜像** — 开箱即用，无需安装 Node.js / npm / Hexo。
+
+镜像发布到 Docker Hub：[bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
+
+[English](./README.en.md) · [简体中文](./README.md) · [繁體中文](./README.zh-TW.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md)
+[Español](./README.es.md) · [Français](./README.fr.md) · [Deutsch](./README.de.md) · [Português](./README.pt.md) · [Русский](./README.ru.md) · [العربية](./README.ar.md)
 
 > 为什么推荐每个人都自建一个独立博客网站？
 > - 一个自我展示的名片！
 > - 最大的言论自由，不被任何外人以及公司审查删帖封号！
 
-> Why is it recommended for everyone to build their own independent blog website?
->
-> - It serves as a personal business card for self-presentation!
-> - It offers the utmost freedom of speech without being subject to censorship, post deletion, or account suspension by outsiders or companies!
+---
 
-## 开始使用
+## 快速开始
 
-### Docker 版 hexo 环境一键部署
-
-> 博主开源定制，推荐使用！省去您大量环境配置时间。
-
-- [docker-hub](https://hub.docker.com/r/bloodstar/hexo)
-- [Github-hexo](https://github.com/appotry/docker-hexo)
-- 效果演示 <a title="My Blog Site" target="_blank" href="https://blog.17lai.site/"><img src="https://img.shields.io/badge/%E5%A4%9C%E6%B3%95%E4%B9%8B%E4%B9%A6%E5%8D%9A%E5%AE%A2%20(blog)-blog.17lai.site-orange" /></a>
-
-使用推荐Docker来搭配本文，阅读使用，将更省事，方便，快捷。hexo环境一键搞定！
-
-[![夜法之书博客](https://cimg1.17lai.fun/data/2023/03/14/20230314054551.webp)](https://blog.17lai.site/)
-
-#### Docker一键安装
+### 使用 docker CLI
 
 ```bash
 docker create --name=hexo \
--e HEXO_SERVER_PORT=4000 \
--e GIT_USER="17lai" \
--e GIT_EMAIL="17lai@domain.tld" \
--v /mnt/blog.17lai.site:/app \
--p 4000:4000 \
-bloodstar/hexo
-```
-#### docker compose 
+  -e HEXO_SERVER_PORT=4000 \
+  -e GIT_USER="yourname" \
+  -e GIT_EMAIL="you@example.com" \
+  -v /path/to/blog:/app \
+  -p 4000:4000 \
+  bloodstar/hexo
 
-> 推荐使用 docker compose 来管理docker
+docker start hexo
+```
+
+首次启动时，若 `/app` 为空，容器会自动执行 `hexo init` 初始化博客并安装常用插件。
+
+### 使用 docker compose
 
 ```yaml
-version: '3'
 services:
-
   hexo:
     container_name: hexo
     image: bloodstar/hexo:latest
@@ -52,107 +46,65 @@ services:
     ports:
       - "7800:4000"
     volumes:
-      - ${USERDIR}/hexo/blog:/app
-    env_file:
-      - .env  # 部分公用环境变量放到这里，以使得多个docker之间共享环境变量
+      - /path/to/blog:/app
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - GIT_USER="yourName"
-      - GIT_EMAIL="youID@gmail.com"
-      
-      # 主要为了内部npm网络访问顺利
-      # - HTTP_PROXY=http://192.168.0.100:1089
-      # - HTTPS_PROXY=http://192.168.0.100:1089
+      - HEXO_SERVER_PORT=4000
+      - GIT_USER=yourname
+      - GIT_EMAIL=you@example.com
+      - TZ=Asia/Shanghai
     restart: always
 ```
 
-.env 文件示例
+## 环境变量
 
-```ini
-# Copy this file to .env before building the container.
-# Put any local modifications here.
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
+| `HEXO_SERVER_PORT` | `4000` | Hexo 服务器监听端口 |
+| `GIT_USER` | — | Git 全局用户名 |
+| `GIT_EMAIL` | — | Git 全局邮箱 |
 
-PUID=1000
-PGID=1000
-TZ="Asia/Shanghai"
-USERDIR="/share/Container"
+## SSH 密钥
+
+**Docker 会自动随机生成 SSH 密钥** 在 `/app/.ssh` 目录下面。自动部署请把 SSH Key 添加到 GitHub 等平台。
+
+```bash
+# 查看公钥
+docker exec hexo cat /app/.ssh/id_rsa.pub
 ```
 
-#### 环境变量
+[GitHub 添加 SSH Key 详细教程](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-
-| 环境变量         | 作用                                |
-| ---------------- | ----------------------------------- |
-| HEXO_SERVER_PORT | pm2 http 服务器运行端口，默认是4000 |
-| GIT_USER         | git 环境变量用户名                  |
-| GIT_EMAIL        | git 环境变量邮箱                    |
-
-
-#### ssh key 部署
-
-**Docker会自动随机生成ssh key** 在 /app/.ssh 目录下面。自动部署请把ssh key添加到github 等平台。
-
-[Github详细教程](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
-> 1. 将**SSH** 公钥复制到剪贴板。 ...
-> 2. 在任何页面的右上角，单击您的个人资料照片，然后单击Settings（设置）。
-> 3. 在用户设置侧边栏中，单击**SSH** and GPG keys（**SSH** 和GPG 密钥）。
-> 4. 单击New **SSH** key（新**SSH** 密钥）或Add **SSH** key（添加**SSH** 密钥）。
-
-#### 进入docker
+## 进入 Docker
 
 ```bash
 docker exec -it hexo bash
 ```
 
-然后就可以正常运行hexo的各种命令了，是不是非常简单？ 快来试试吧。
+进入容器后，就可以正常运行 hexo 的各种命令了。
 
-#### 配置主题
+## 配置主题
 
-不同人的审美不一样，喜欢不同的主题，这里推荐几个主题
+不同人的审美不一样，喜欢不同的主题，这里推荐几个主题：
 
 - [Matery](https://github.com/blinkfox/hexo-theme-matery)
 - [Fluid](https://github.com/fluid-dev/hexo-theme-fluid)
 - [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
 - [Next](https://theme-next.js.org/)
 
-下载好主题后，按照不同的主题使用说明，配置对应的配置文件，然后编译项目 `hexo g` ，编译完之后，就可以通过浏览器访问地址 [docker IP]:4000 当方式看到网页了！
-
-#### 常用命令
+下载好主题后，按照不同主题的使用说明，配置对应的配置文件，然后编译项目 `hexo g`，编译完之后，就可以通过浏览器访问 `http://[docker IP]:4000` 看到网页了。
 
 ```bash
-hexo server #启动本地服务器，用于预览主题。Hexo 会监视文件变动并自动更新，除修改站点配置文件外,无须重启服务器,直接刷新网页即可生效。
-hexo server -s #以静态模式启动
-hexo server -p 4000 #更改访问端口 (默认端口为 5000，’ctrl + c’关闭 server)
-hexo server -i IP地址 #自定义 IP
-hexo clean #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的 public 文件夹
-hexo g #生成静态网页 (执行 $ hexo g后会在站点根目录下生成 public 文件夹, hexo 会将”/blog/source/“ 下面的.md 后缀的文件编译为.html 后缀的文件,存放在”/blog/public/ “ 路径下)
-hexo d #自动生成网站静态文件，并将本地数据部署到设定的仓库(如 github)
-hexo init 文件夹名称 #初始化 XX 文件夹名称
-npm update hexo -g#升级
-npm install hexo -g #安装
-node -v #查看 node.js 版本号
-npm -v #查看 npm 版本号
-git --version #查看 git 版本号
-hexo -v #查看 hexo 版本号
-hexo new page “music” #新增页面music
-hexo new post “文章名称” #新增文章
+cd /app
+git clone https://github.com/用户名/hexo-theme-xxx.git themes/xxx
 ```
 
-更详细教程戳这里 [Hexo入门篇](https://blog.17lai.site/posts/40300608/#Hexo%E5%85%A5%E9%97%A8%E7%AF%87)
+编辑 `/app/_config.yml`，修改 `theme: xxx`，然后 `hexo g` 重新生成。
 
+## 用户自动运行脚本
 
-#### 用户自动运行脚本
+用户可以在这里添加自动配置、自动安装插件等启动 Docker 时运行的命令。
 
-> 用户可以在这里添加自动配置，自动安装插件，等各种启动docker运行的命令。
-
-```bash
-vi /app/userRun.sh
-```
-
-`/app/userRun.sh` 示例
+编辑 `/app/userRun.sh`：
 
 ```bash
 #!/bin/bash
@@ -173,10 +125,7 @@ sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 npm config ls -l
 
 mkdir -p /app/.cache/npm
-npm config set cache "/app/.cache/npm" 
-# npm config set userconfig "/app/.npmrc"
-# npm config set registry https://registry.npmmirror.com
-
+npm config set cache "/app/.cache/npm"
 npm config set registry https://registry.npmjs.org/
 
 #### history 持久化
@@ -185,9 +134,9 @@ ln -s /app/.bash_history ~/.bash_history
 
 #### ssh 配置
 #### 避免 "Are you sure you want to continue connecting (yes/no)? yes"
-chmod 600 /app/.ssh/id_rsa 
-chmod 644 /app/.ssh/id_rsa.pub 
-chmod 700 /app/.ssh 
+chmod 600 /app/.ssh/id_rsa
+chmod 644 /app/.ssh/id_rsa.pub
+chmod 700 /app/.ssh
 rm -rfv ~/.ssh
 ln -s /app/.ssh ~/.ssh
 
@@ -199,28 +148,76 @@ npm install --save \
     hexo-douban-card-new \
     hexo-github-card \
     hexo-bilibili-card-new \
-    hexo-feed 
+    hexo-feed
 
 echo "=====User CMD end!====="
-
 ```
 
-设置代理
-```bash
-# 如果网络访问不顺利，可以在访问网络之前添加代理
+如果网络访问不顺利，可在访问网络之前添加代理：
 
+```bash
 # 命令行使用代理的方法
 export http_proxy=http://192.168.0.100:1089;export https_proxy=http://192.168.0.100:1089
 
-# 使用docker host name 来访问代理，不用IP。更推荐这种方式，使用 docker 内部的 dns 需找目标
+# 使用docker host name 来访问代理，不用IP。更推荐这种方式，使用 docker 内部的 dns 寻找目标
 export http_proxy=http://xray:1089;export https_proxy=http://xray:1089
 ```
 
-### 实时预览修改
+### requirements.txt
 
-hexo 支持实时预览修改效果，文章主题的修改，都可以通过web服务立刻看到效果。
+在博客卷中添加 `requirements.txt`，每行一个 npm 包名，启动时自动安装：
 
-如果你发现了修改没有立刻生效，可能是 node 缓存还在，可以使用下面方法重启 web 服务
+```txt
+hexo-generator-json-content
+hexo-generator-feed
+```
+
+## 常用命令
+
+| 操作 | 命令 |
+|------|------|
+| 进入容器 | `docker exec -it hexo bash` |
+| 查看日志 | `docker logs --follow hexo` |
+| 重启 pm2 | `docker exec hexo pm2 restart /hexo_run.js` |
+| 重启容器 | `docker restart hexo` |
+| 生成静态文件 | `docker exec hexo hexo g` |
+| 部署到远程 | `docker exec hexo hexo d` |
+| 新建文章 | `docker exec hexo hexo new post "文章标题"` |
+| 新建页面 | `docker exec hexo hexo new page "music"` |
+| 清理缓存 | `docker exec hexo hexo clean` |
+
+## 快捷别名
+
+在宿主机 `~/.bashrc` 或 `~/.zshrc` 中添加以下别名，可直接运行 hexo 命令而无需先 `docker exec`：
+
+```bash
+# hexo 容器快捷操作
+alias hexo='docker exec -it hexo hexo'
+alias hexo-shell='docker exec -it hexo bash'
+alias hexo-logs='docker logs --follow hexo'
+alias hexo-restart='docker exec hexo pm2 restart /hexo_run.js'
+alias hexo-reboot='docker restart hexo'
+
+# hexo new post "标题"
+# hexo g
+# hexo d
+# hexo clean
+```
+
+添加后执行 `source ~/.bashrc` 生效，之后可直接使用：
+
+```bash
+hexo new post "我的新文章"
+hexo g
+hexo d
+hexo-shell
+```
+
+## 实时预览修改
+
+Hexo 支持实时预览修改效果，文章主题的修改，都可以通过 Web 服务立刻看到效果。
+
+如果你发现了修改没有立刻生效，可能是 node 缓存还在，可以使用下面方法重启 Web 服务：
 
 ```bash
 # 重启 pm2
@@ -230,7 +227,7 @@ pm2 restart /hexo_run.js
 docker restart hexo
 ```
 
-### **完整使用教程**
+## 完整使用教程
 
 - [Hexo Docker环境与Hexo基础配置篇](https://blog.17lai.site/posts/40300608/)
 - [hexo博客自定义修改篇](https://blog.17lai.site/posts/4d8a0b22/)
@@ -247,118 +244,18 @@ docker restart hexo
 - [HexoAPI](https://hexo.io/zh-cn/api/)
 - [Hexo插件](https://hexo.io/plugins/)
 
-## **Hexo 中文化环境配置**
-附加安装一大堆使用插件，并且下载Matery主题
+## 文档导航
 
-Github: [appotry/docker-hexo](https://github.com/appotry/docker-hexo)
+| 文档 | 内容 |
+|------|------|
+| [AGENTS.md](./AGENTS.md) | AI 工作约定、命令、工程化规范 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 架构说明、组件关系、数据流 |
+| [docs/REQUIREMENTS.md](./docs/REQUIREMENTS.md) | 功能与非功能需求 |
+| [docs/TESTING.md](./docs/TESTING.md) | 测试策略、Docker 构建验证方法 |
+| [docs/CHANGELOG.md](./docs/CHANGELOG.md) | 版本变更历史 |
 
-Docker Hub: [bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
+## 相关资源
 
-Edit From: [spurin/docker-hexo](https://github.com/spurin/docker-hexo)
-
-Dockerfile for [Hexo](https://hexo.io/) with [Hexo Admin](https://github.com/jaredly/hexo-admin)
-
-The image is available directly from [Docker Hub](https://hub.docker.com/r/bloodstar/hexo/)
-
-A tutorial is available at [spurin.com](https://spurin.com/2020/01/04/Creating-a-Blog-Website-with-Docker-Hexo-Github-Free-Hosting-and-HTTPS/)
-
-Latest update locks the node version to 13-slim rather than slim (which at the time of writing is 14), whilst Hexo appears to work for most areas, there is at present an outstanding issue that prevents the `hexo deploy` working with 14.  See [Hexo 4275]( https://github.com/hexojs/hexo/issues/4275)
-
-## Getting Started
-
-Create a new blog container, substitute *domain.com* for your domain and specify your blog location with -v target:/app, specify your git user and email address (for deployment):
-
-```bash
-docker create --name=hexo-domain.com \
--e HEXO_SERVER_PORT=4000 \
--e GIT_USER="Your Name" \
--e GIT_EMAIL="your.email@domain.tld" \
--v /blog/domain.com:/app \
--p 4000:4000 \
-bloodstar/hexo
-```
-
-If a blog is not configured in /app (locally as /blog/domain.com) already, it will be created and Hexo-Admin will be installed into the blog as the container is started
-
-```bash
-docker start hexo-domain.com
-```
-
-## Accessing the container
-
-Should you wish to perform further configuration, i.e. installing custom themes, this should be viable from the app specific volume, either directly or via the container (changes to the app volume are persistent).  Accessing the container -
-
-```bash
-docker exec -it hexo-domain.com bash
-```
-
-## Deployment keys for use with Github/Gitlab
-
-Deployment keys are configured as part of the initial app configuration, see the .ssh directory within your app volume or, view the logs upon startup for the SSH public key
-
-```bash
-docker logs --follow hexo-domain.com
-```
-
-### Installing a theme
-
-Each theme will vary but for example, a theme such as [Hueman](https://github.com/ppoffice/hexo-theme-hueman), clone the repository to the themes directory within the app volume
-
-```bash
-cd /app
-git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman
-```
-
-Update _config.yml in your app folder, and change theme accordingly
-
-```bash
-theme: hueman
-```
-
-Enable the default configuration
-
-```bash
-mv themes/hueman/_config.yml.example themes/hueman/_config.yml
-```
-
-Exit the container
-
-```bash
-exit
-```
-
-And restart the container
-
-```bash
-docker restart hexo-domain.com
-```
-
-## Accessing Hexo
-
-Access the default hexo blog interface at http://< ip_address >:4000
-
-## Accessing Hexo-Admin
-
-Access Hexo-Admin at http://< ip_address >:4000/admin
-
-## Generating Content
-
-```bash
-docker exec -it hexo-domain.com hexo generate
-```
-
-## Deploying Generated Content
-
-```bash
-docker exec -it hexo-domain.com hexo deploy
-```
-
-## Adding hexo plugins
-
-If you wish to add specific hexo plugins, add them to a requirements.txt file to your app volume, for example (app/requirements.txt) -
-
-```bash
-hexo-generator-json-content
-```
-
-During startup, if the requirements.txt file exists, requirements are auto installed
+- [Hexo 官方文档](https://hexo.io/zh-cn/docs/)
+- [Docker Hub — bloodstar/hexo](https://hub.docker.com/r/bloodstar/hexo)
+- 上游项目：[spurin/docker-hexo](https://github.com/spurin/docker-hexo)
