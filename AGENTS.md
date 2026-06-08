@@ -103,6 +103,7 @@ type(scope): 简短描述（50 字以内）
 相关经验：
 - `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建
 - `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范
+- `04-documentation/10-doc-refactor-checklist.md` — 文档重构必须维护完整文档清单
 - `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略
 - `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具在开源仓库中的应用
 - `05-ci-cd/06-github-workflow-efficiency.md` — GitHub Actions 效率工作流

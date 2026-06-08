@@ -71,9 +71,11 @@ hexo-generator-feed
 | Enter container | `docker exec -it hexo bash` |
 | View logs | `docker logs --follow hexo` |
 | Restart pm2 | `docker exec hexo pm2 restart /hexo_run.js` |
+| Restart container | `docker restart hexo` |
 | Generate static files | `docker exec hexo hexo g` |
 | Deploy to remote | `docker exec hexo hexo d` |
 | New post | `docker exec hexo hexo new post "My Title"` |
+| New page | `docker exec hexo hexo new page "music"` |
 | Clean cache | `docker exec hexo hexo clean` |
 
 ## Documentation
