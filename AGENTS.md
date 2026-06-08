@@ -34,17 +34,17 @@
 - **包管理器**：所有 npm 操作使用 **cnpm**（淘宝 npm 镜像），非 npm。
 - **用户定制**：编辑 `/app/userRun.sh` 添加启动命令，或在博客卷中添加 `requirements.txt` 安装插件。
 - **环境变量**：`HEXO_SERVER_PORT`（默认 4000）、`GIT_USER`、`GIT_EMAIL`。
-- **经验版本验证**：每次 session 开始时检查相关经验版本号，如有更新则读取新版并向用户展示变化摘要，用户确认后应用重构优化。
-- **最小化引用**：非必要不引入新经验。工作内容变动需引入新经验时，先向用户展示摘要确认后再添加。
+
 
 ## CI / Docker
 
-- **CI 触发**：`main`/`master` 推送、Release 发布、Star 事件、每月 1 号定时、手动调度
+- **CI 触发**：`main`/`master` 推送（Dependabot 合并 PR 时触发）、手动调度
 - **多架构构建**：`linux/amd64,linux/arm64`（QEMU + Buildx）
-- **镜像标签**：`bloodstar/hexo:latest`、`bloodstar/hexo:node20`、`bloodstar/hexo:{hexo-ver}-node20`（例：`7.3.0-node20`）
+- **版本来源**：从 `package.json` 的 `dependencies.hexo` 读取，Dependabot 检测到 hexo 新版本自动发 PR
+- **镜像标签**：`bloodstar/hexo:latest`、`bloodstar/hexo:node20`、`bloodstar/hexo:{hexo-ver}-node20`（例：`8.1.2-node20`）
 - **所需 Secret**：`DOCKER_USERNAME`、`DOCKER_PASSWORD`
 - **Renovate**：`renovate.json` 启用 base 配置自动更新
-- **Dependabot**：每日扫描 Docker 依赖（`.github/dependabot.yml`）
+- **Dependabot**：npm + Docker 双生态每日扫描（`.github/dependabot.yml`）
 - **Stale**：自动标记 60 天无活动 Issue/PR（`.github/workflows/stale.yml`）
 - **Labeler**：根据文件路径自动为 PR 打标签（`.github/workflows/label.yml`）
 - **Greetings**：首次贡献者自动欢迎（`.github/workflows/greetings.yml`）
@@ -111,14 +111,5 @@
 
 ## 经验知识库
 
-共享路径：`~/Work/dev-experience/`
-
+路径：`~/Work/dev-experience/`（[gateway skill](~/.agents/skills/dev-experience/SKILL.md) 自动加载）
 本项目标签：`docker`, `static-site`, `ci-cd`, `automation`
-
-相关经验：
-- `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建（v1.0.0）
-- `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范（v1.0.0）
-- `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略（v1.0.0）
-- `99-general/14-docker-standards.md` — Dockerfile 编码规范（v1.0.0）
-- `99-general/07-documentation-writing-standards.md` — Hexo 兼容的 LaTeX/Mermaid 语法（v1.0.0）
-- `03-git-workflow/04-enhanced-commit-convention.md` — Emoji 提交规范（v1.0.0）
