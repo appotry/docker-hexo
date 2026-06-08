@@ -135,3 +135,5 @@
 - `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具
 - `08-testing/07-testing-taxonomy.md` — 测试分类体系
 - `02-frontend/06-web-accessibility-standards.md` — WCAG 无障碍标准
+- `03-git-workflow/04-enhanced-commit-convention.md` — Emoji 提交规范
+- `03-git-workflow/06-git-flow-model.md` — Git Flow 分支模型
