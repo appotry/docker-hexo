@@ -52,19 +52,32 @@
 ### Git 提交
 
 ```
-type(scope): 简短描述（50 字以内）
+[emoji] type(scope): 简短描述（50 字以内）
 ```
 
-| type | 用途 |
-|------|------|
-| feat | 新功能 |
-| fix | Bug 修复 |
-| docs | 文档变更 |
-| chore | 构建/工具/依赖 |
-| ci | CI/CD 配置 |
-| refactor | 代码重构 |
+| type | emoji | 用途 |
+|------|-------|------|
+| feat | ✨ | 新功能 |
+| fix | 🐛 | Bug 修复 |
+| docs | 📖 | 文档变更 |
+| chore | 🔧 | 构建/工具/依赖 |
+| ci | 🔧 | CI/CD 配置 |
+| refactor | ♻️ | 代码重构 |
+| perf | ⚡ | 性能优化 |
+| test | 🧪 | 测试相关 |
+| style | 🎨 | 代码格式 |
 
 原则：小提交，每提交只做一件事。
+
+### 分支命名
+
+| 分支类型 | 命名格式 | 说明 |
+|---------|---------|------|
+| master | `master` / `main` | 生产分支，永久 |
+| develop | `develop` | 开发分支，永久 |
+| feature | `feature/<name>` | 功能分支，从 develop 创建，合回 develop 后删除 |
+| release | `release/<version>` | 发布分支，从 develop 创建，合到 master+develop 后删除 |
+| hotfix | `hotfix/<version>` | 紧急修复，从 master tag 创建，合到 master+develop 后删除 |
 
 ### 编码规范
 
