@@ -101,6 +101,7 @@ type(scope): 简短描述（50 字以内）
 本项目标签：`docker`, `static-site`, `ci-cd`, `automation`
 
 相关经验：
+- `_policy/experience-validity-policy.md` — 经验有效期管理策略（所有经验均含有效期声明）
 - `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建
 - `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范
 - `04-documentation/10-doc-refactor-checklist.md` — 文档重构必须维护完整文档清单
