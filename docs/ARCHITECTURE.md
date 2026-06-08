@@ -46,7 +46,8 @@ hexo_run.js (pm2 管理)
 | 单阶段构建 | 保持简单，Hexo 运行本身需要全部依赖，多阶段无收益 |
 | cnpm 包管理器 | 淘宝 npm 镜像，中国区加速，替代 npm |
 | pm2 进程管理 | 保持 hexo server 稳定运行，支持优雅重启 |
-| 无 USER 指令 | 默认 root 运行，用户可通过 userRun.sh 自定义 |
+| 无 USER 指令 | 默认 root 运行（entrypoint 需 root 权限做 SSH 密钥生成、Git 配置、apt 操作等），用户可通过 userRun.sh 自定义 |
+| HEALTHCHECK | 每 30 秒检查 hexo server HTTP 200，30 秒启动宽限，3 次失败认定不健康 |
 
 ## 构建与部署
 

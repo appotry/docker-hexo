@@ -1,15 +1,8 @@
 #!/bin/bash
-
-#echo "***** Starting server on port ${HEXO_SERVER_PORT} *****" 
-#hexo server -d -p ${HEXO_SERVER_PORT}
-
-pm2 start /hexo_run.js
+set -e
 
 echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
 echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
-
-
-cnpm config set registry https://registry.npmmirror.com/
 
 if [ "$(ls -A /app)" ]; then 
     echo "***** App directory exists and has content, continuing *****"; 
@@ -83,4 +76,6 @@ else
     echo "run userRun.sh"
     /app/userRun.sh; 
 fi
+
+pm2 start /hexo_run.js
 pm2 logs hexo_run

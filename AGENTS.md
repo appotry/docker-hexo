@@ -30,7 +30,7 @@
 ## 关键细节
 
 - **基础镜像**：本地 `node:20-slim`，远程 `origin/master` 已升级到 `node:26-slim` — 两个分支已分叉。
-- **入口流程**：`entrypoint.sh` → 若 `/app` 为空则 `hexo init` → 安装插件 → 生成 SSH 密钥 → 配置 Git → 执行 `userRun.sh` → `pm2 start /hexo_run.js`。
+- **入口流程**：`entrypoint.sh` → 若 `/app` 为空则 `hexo init` → 安装插件和 `requirements.txt` → 生成 SSH 密钥 → 配置 Git → 执行 `userRun.sh` → `pm2 start /hexo_run.js` → `pm2 logs`。
 - **包管理器**：所有 npm 操作使用 **cnpm**（淘宝 npm 镜像），非 npm。
 - **用户定制**：编辑 `/app/userRun.sh` 添加启动命令，或在博客卷中添加 `requirements.txt` 安装插件。
 - **环境变量**：`HEXO_SERVER_PORT`（默认 4000）、`GIT_USER`、`GIT_EMAIL`。
@@ -110,3 +110,13 @@ type(scope): 简短描述（50 字以内）
 - `99-general/14-docker-standards.md` — Dockerfile 编码规范
 - `99-general/07-documentation-writing-standards.md` — Hexo 兼容的 LaTeX/Mermaid 语法
 - `99-general/18-gh-cli-setup.md` — gh CLI Token 配置
+- `99-general/19-naming-cheatsheet.md` — 命名规范 A/HC/LC
+- `99-general/20-clean-code-principles.md` — 整洁代码原则
+- `99-general/21-twelve-factor-app.md` — 云原生 12 要素
+- `99-general/22-cpp-coding-standards.md` — C++ 编码规范
+- `99-general/23-java-standards.md` — Java 编码规范
+- `99-general/24-book-writing-experience.md` — 书籍写作经验
+- `99-general/25-experience-source-tracking.md` — 经验来源追踪
+- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具
+- `08-testing/07-testing-taxonomy.md` — 测试分类体系
+- `02-frontend/06-web-accessibility-standards.md` — WCAG 无障碍标准

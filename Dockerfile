@@ -45,6 +45,9 @@ WORKDIR /app
 
 EXPOSE ${HEXO_SERVER_PORT}
 
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+  CMD curl -s -o /dev/null -w "%{http_code}" http://localhost:${HEXO_SERVER_PORT} | grep -q 200
+
 COPY entrypoint.sh /entrypoint.sh
 COPY userRun.sh /userRun.sh
 COPY hexo_run.js /hexo_run.js

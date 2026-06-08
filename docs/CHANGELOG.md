@@ -1,30 +1,41 @@
 # 变更日志
 
-## [unreleased]
+All notable changes to this project are documented in this file.
 
-### docs
-- 新增 AGENTS.md，统一工程化约定与命令入口
-- 新增 docs/ARCHITECTURE.md 架构说明
-- 新增 docs/REQUIREMENTS.md 需求文档
-- 新增 docs/TESTING.md 测试策略
-- 新增 docs/CHANGELOG.md 变更日志
-- 新增 tests/docker_test.sh 自动化验证脚本
+## [Unreleased]
 
-## [2026-06-07]
+### Fixed
+- `hexo_run.js`: template literals now use backtick quotes; `${HEXO_SERVER_PORT}` correctly interpolates
+- `entrypoint.sh`: add `set -e` per shell coding standard; move `pm2 start` after blog init to prevent race condition
+- `entrypoint.sh`: remove redundant `cnpm config set registry` (already set in Dockerfile)
 
-### ci
-- 更新 docker/build-push-action 到 v7
-- 更新 docker/setup-buildx-action 到 v4
-- 更新 docker/setup-qemu-action 到 v4
-- 更新 docker/login-action 到 v4
-- 更新 actions/checkout 到 v6
+### Added
+- `Dockerfile`: `HEALTHCHECK` for hexo server HTTP 200 monitoring
 
-### chore
-- 本地 Dockerfile 回退到 node:20-slim（远程 master 已升级到 26-slim）
-- 移除不支持的构建平台
+### Changed
+- `docs/ARCHITECTURE.md`: document HEALTHCHECK and USER design decisions
+- `AGENTS.md`: update entrypoint flow description, add new experience library references
+- `docs/CHANGELOG.md`: restructured to Keep a Changelog format
 
-## [2026-05-xx]
+## [0.1.0] - 2026-06-07
 
-### ci
-- 启用 Renovate 自动依赖更新
-- 添加 Dependabot Docker 依赖每日扫描
+### Added
+- `AGENTS.md`: unified engineering conventions and command entry
+- `docs/ARCHITECTURE.md`: architecture documentation
+- `docs/REQUIREMENTS.md`: requirements documentation
+- `docs/TESTING.md`: test strategy documentation
+- `docs/CHANGELOG.md`: changelog documentation
+- `tests/docker_test.sh`: automated verification script
+
+### Changed
+- CI: update `docker/build-push-action` to v7
+- CI: update `docker/setup-buildx-action` to v4
+- CI: update `docker/setup-qemu-action` to v4
+- CI: update `docker/login-action` to v4
+- CI: update `actions/checkout` to v6
+- Local Dockerfile reverted to `node:20-slim` (remote master uses `node:26-slim`)
+- Removed unsupported build platforms
+
+### Security
+- Enable Renovate automatic dependency updates
+- Add Dependabot daily Docker dependency scanning
