@@ -114,26 +114,26 @@
 本项目标签：`docker`, `static-site`, `ci-cd`, `automation`
 
 相关经验：
-- `_policy/experience-validity-policy.md` — 经验有效期管理策略（所有经验均含有效期声明）
-- `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建
-- `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范
-- `04-documentation/10-doc-refactor-checklist.md` — 文档重构必须维护完整文档清单
-- `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略
-- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具在开源仓库中的应用
-- `05-ci-cd/06-github-workflow-efficiency.md` — GitHub Actions 效率工作流
-- `08-testing/05-test-report-analysis-workflow.md` — 测试报告分析与失败处理规范
-- `99-general/14-docker-standards.md` — Dockerfile 编码规范
-- `99-general/07-documentation-writing-standards.md` — Hexo 兼容的 LaTeX/Mermaid 语法
-- `99-general/18-gh-cli-setup.md` — gh CLI Token 配置
-- `99-general/19-naming-cheatsheet.md` — 命名规范 A/HC/LC
-- `99-general/20-clean-code-principles.md` — 整洁代码原则
-- `99-general/21-twelve-factor-app.md` — 云原生 12 要素
-- `99-general/22-cpp-coding-standards.md` — C++ 编码规范
-- `99-general/23-java-standards.md` — Java 编码规范
-- `99-general/24-book-writing-experience.md` — 书籍写作经验
-- `99-general/25-experience-source-tracking.md` — 经验来源追踪
-- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具
-- `08-testing/07-testing-taxonomy.md` — 测试分类体系
-- `02-frontend/06-web-accessibility-standards.md` — WCAG 无障碍标准
-- `03-git-workflow/04-enhanced-commit-convention.md` — Emoji 提交规范
-- `03-git-workflow/06-git-flow-model.md` — Git Flow 分支模型
+- `_policy/experience-validity-policy.md` — 经验有效期管理策略（v1.0.0，所有经验均含有效期声明）
+- `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目工程化文档体系搭建（v1.0.0）
+- `04-documentation/08-docker-hub-readme-spec.md` — Docker Hub README 文档规范（v1.0.0）
+- `04-documentation/10-doc-refactor-checklist.md` — 文档重构必须维护完整文档清单（v1.0.0）
+- `05-ci-cd/02-docker-multi-stage.md` — Docker 标签与构建策略（v1.0.0）
+- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具在开源仓库中的应用（v1.0.0）
+- `05-ci-cd/06-github-workflow-efficiency.md` — GitHub Actions 效率工作流（v1.0.0）
+- `08-testing/05-test-report-analysis-workflow.md` — 测试报告分析与失败处理规范（v1.0.0）
+- `99-general/14-docker-standards.md` — Dockerfile 编码规范（v1.0.0）
+- `99-general/07-documentation-writing-standards.md` — Hexo 兼容的 LaTeX/Mermaid 语法（v1.0.0）
+- `99-general/18-gh-cli-setup.md` — gh CLI Token 配置（v1.0.0）
+- `99-general/19-naming-cheatsheet.md` — 命名规范 A/HC/LC（v1.0.0）
+- `99-general/20-clean-code-principles.md` — 整洁代码原则（v1.0.0）
+- `99-general/21-twelve-factor-app.md` — 云原生 12 要素（v1.0.0）
+- `99-general/22-cpp-coding-standards.md` — C++ 编码规范（v1.0.0）
+- `99-general/23-java-standards.md` — Java 编码规范（v1.0.0）
+- `99-general/24-book-writing-experience.md` — 书籍写作经验（v1.0.0）
+- `99-general/25-experience-source-tracking.md` — 经验来源追踪（v1.0.0）
+- `05-ci-cd/05-github-free-tools.md` — GitHub 免费工具（v1.0.0）
+- `08-testing/07-testing-taxonomy.md` — 测试分类体系（v1.0.0）
+- `02-frontend/06-web-accessibility-standards.md` — WCAG 无障碍标准（v1.0.0）
+- `03-git-workflow/04-enhanced-commit-convention.md` — Emoji 提交规范（v1.0.0）
+- `03-git-workflow/06-git-flow-model.md` — Git Flow 分支模型（v1.0.0）
