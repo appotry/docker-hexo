@@ -83,10 +83,16 @@ hexo-generator-feed
 | Document | Description | Link |
 |----------|-------------|------|
 | English README | Full English documentation | [README.en.md](https://github.com/appotry/docker-hexo/blob/master/README.en.md) |
-| 中文文档 | 完整中文说明 | [README.md](https://github.com/appotry/docker-hexo/blob/master/README.md) |
+| 简体中文 | 完整中文说明 | [README.md](https://github.com/appotry/docker-hexo/blob/master/README.md) |
 | 繁體中文 | 完整繁體中文說明 | [README.zh-TW.md](https://github.com/appotry/docker-hexo/blob/master/README.zh-TW.md) |
 | 日本語 | 日本語ドキュメント | [README.ja.md](https://github.com/appotry/docker-hexo/blob/master/README.ja.md) |
 | 한국어 | 한국어 문서 | [README.ko.md](https://github.com/appotry/docker-hexo/blob/master/README.ko.md) |
+| Español | Documentación completa en español | [README.es.md](https://github.com/appotry/docker-hexo/blob/master/README.es.md) |
+| Français | Documentation complète en français | [README.fr.md](https://github.com/appotry/docker-hexo/blob/master/README.fr.md) |
+| Deutsch | Vollständige Dokumentation auf Deutsch | [README.de.md](https://github.com/appotry/docker-hexo/blob/master/README.de.md) |
+| Português | Documentação completa em português | [README.pt.md](https://github.com/appotry/docker-hexo/blob/master/README.pt.md) |
+| Русский | Полная документация на русском | [README.ru.md](https://github.com/appotry/docker-hexo/blob/master/README.ru.md) |
+| العربية | الوثائق الكاملة باللغة العربية | [README.ar.md](https://github.com/appotry/docker-hexo/blob/master/README.ar.md) |
 | Architecture | Components & data flow | [docs/ARCHITECTURE.md](https://github.com/appotry/docker-hexo/blob/master/docs/ARCHITECTURE.md) |
 | Requirements | Functional & non-functional | [docs/REQUIREMENTS.md](https://github.com/appotry/docker-hexo/blob/master/docs/REQUIREMENTS.md) |
 | Testing | Test strategy & verification | [docs/TESTING.md](https://github.com/appotry/docker-hexo/blob/master/docs/TESTING.md) |
