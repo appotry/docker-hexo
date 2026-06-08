@@ -5,12 +5,6 @@ on:
     branches:
       - main
       - master
-  watch:
-    types: [started]
-  release:
-    types: [published]
-  schedule:
-    - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
@@ -23,7 +17,7 @@ jobs:
       - name: Get hexo version
         id: hexo-version
         run: |
-          HEXO_VER=$(npm view hexo version 2>/dev/null)
+          HEXO_VER=$(jq -r '.dependencies.hexo // empty' package.json | sed 's/^[\^~]//')
           echo "version=$HEXO_VER" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
