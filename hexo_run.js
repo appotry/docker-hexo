@@ -1,10 +1,8 @@
-const { exec } = require('child_process')
+const { spawn } = require('child_process')
 const port = process.env.HEXO_SERVER_PORT || 4000
-exec(`hexo server -p ${port}`, (error, stdout, stderr) => {
-  if (error) {
-    console.error(`exec error: ${error}`)
-    return
-  }
-  console.log(`stdout: ${stdout}`)
-  console.log(`stderr: ${stderr}`)
+const child = spawn('hexo', ['server', '-p', String(port)], {
+  stdio: 'inherit'
+})
+child.on('error', (error) => {
+  console.error(`spawn error: ${error}`)
 })

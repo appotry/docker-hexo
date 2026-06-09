@@ -59,13 +59,16 @@ fi;
 echo "***** Running git config, user = ${GIT_USER}, email = ${GIT_EMAIL} *****" 
 git config --global user.email ${GIT_EMAIL} 
 git config --global user.name ${GIT_USER} 
-echo "***** Copying .ssh from App directory and setting permissions *****" 
-cp -r /app/.ssh ~/ 
-chmod 600 ~/.ssh/id_rsa 
-chmod 600 ~/.ssh/id_rsa.pub 
-chmod 700 ~/.ssh 
+if [ "$(readlink -f /app/.ssh)" != "$(readlink -f ~/.ssh)" ]; then
+    echo "***** Copying .ssh from App directory and setting permissions *****"
+    cp -r /app/.ssh ~/
+fi
+chmod 600 ~/.ssh/id_rsa 2>/dev/null || true
+chmod 600 ~/.ssh/id_rsa.pub 2>/dev/null || true
+chmod 700 ~/.ssh 2>/dev/null || true
+
 echo "***** Contents of public ssh key (for deploy) - *****" 
-cat ~/.ssh/id_rsa.pub 
+cat ~/.ssh/id_rsa.pub 2>/dev/null || echo "(no public key found)" 
 
 if [ ! -f /app/userRun.sh ]; then 
     echo "cp userRun.sh"
