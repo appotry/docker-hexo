@@ -113,6 +113,8 @@
 
 遵循 [Karpathy 编码纪律](https://github.com/multica-ai/andrej-karpathy-skills)（思考优先 / 简约优先 / 精准修改 / 目标驱动）。编码任务中通过 `skill(name="karpathy-guidelines")` 加载。
 
+编码完成后，对核心逻辑、安全敏感、并发代码执行 **Grill-me（对抗式审查）**：切换为挑剔审查者人格，穷举找出所有缺陷，修复后再审查，循环达标为止。详见 skill 第 5 节。
+
 ## 经验知识库
 
 路径：`~/Work/dev-experience/`（[gateway skill](~/.agents/skills/dev-experience/SKILL.md) 自动加载）
