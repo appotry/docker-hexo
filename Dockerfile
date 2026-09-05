@@ -22,7 +22,7 @@ RUN apt-get update && \
         git git-lfs vim net-tools lsof procps locales \
         openssl openssh-client jq wget dos2unix build-essential autoconf automake \
         gettext libtool pkg-config libpng-dev gnupg2 \
-        su-exec gh && \
+        gh && \
     sed -i '/zh_CN.UTF-8/s/^# //' /etc/locale.gen && \
     locale-gen zh_CN.UTF-8 && \
     update-locale LANG=zh_CN.UTF-8 && \

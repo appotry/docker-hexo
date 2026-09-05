@@ -15,7 +15,7 @@ if [ -n "$PUID" ] && [ -n "$PGID" ]; then
     groupmod -o -g "$PGID" node
     usermod -o -u "$PUID" -g "$PGID" node
     mkdir -p /home/node && chown -R node:node /home/node
-    export RUN_AS="su-exec node"
+    export RUN_AS="runuser -u node --"
 else
     echo "***** PUID/PGID 未设置，以默认用户运行（root）*****"
     export RUN_AS=""
@@ -101,8 +101,8 @@ else
 fi
 
 if [ -n "$RUN_AS" ]; then
-    su-exec node pm2 start /hexo_run.js
-    su-exec node pm2 logs hexo_run
+    $RUN_AS pm2 start /hexo_run.js
+    $RUN_AS pm2 logs hexo_run
 else
     pm2 start /hexo_run.js
     pm2 logs hexo_run
