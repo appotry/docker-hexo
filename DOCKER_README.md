@@ -33,6 +33,17 @@ On first start, if `/app` is empty, the container automatically runs `hexo init`
 | `HEXO_SERVER_PORT` | `4000` | Hexo server listening port |
 | `GIT_USER` | — | Git global username |
 | `GIT_EMAIL` | — | Git global email |
+| `PUID` | *(unset)* | Host user ID to run services as (maps the container `node` user). Leave unset to run as root (default, backward compatible). Set together with `PGID` to avoid root-owned files on bind mounts |
+| `PGID` | *(unset)* | Host group ID to run services as (maps the container `node` user). Leave unset to run as root |
+| `UMASK` | `022` | File permission mask for files created inside the container (linuxserver convention, keeps bind-mount permissions consistent) |
+
+> **PUID/PGID example** — run services with the host user `1000:1000`:
+> ```yaml
+> environment:
+>   - PUID=1000
+>   - PGID=1000
+> ```
+> The entrypoint remaps the `node` user to the given UID/GID and starts PM2 with it, so files created inside `/app` (e.g. `public/`, `.deploy_git/`) belong to your host user instead of root.
 
 ## SSH Keys
 

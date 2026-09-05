@@ -1,6 +1,26 @@
 #!/bin/bash
 set -e
 
+# UMASK 环境变量（linuxserver 惯例）：控制容器内创建文件的权限掩码，
+# 挂载卷场景下保证文件权限一致性（默认 022 保持常规行为）
+umask "${UMASK:-022}"
+
+# ===== PUID/PGID 用户映射（2026-09-05，linuxserver 模式）=====
+# 未设置 PUID/PGID 时保持默认用户（root）运行，向后兼容现有部署；
+# 设置后把 node 用户映射到指定 UID/GID，pm2 服务以该用户运行（文件归宿主用户）
+PUID=${PUID:-}
+PGID=${PGID:-}
+if [ -n "$PUID" ] && [ -n "$PGID" ]; then
+    echo "***** Mapping PUID=$PUID PGID=$PGID to node user *****"
+    groupmod -o -g "$PGID" node
+    usermod -o -u "$PUID" -g "$PGID" node
+    mkdir -p /home/node && chown -R node:node /home/node
+    export RUN_AS="su-exec node"
+else
+    echo "***** PUID/PGID 未设置，以默认用户运行（root）*****"
+    export RUN_AS=""
+fi
+
 echo "***** stop hexo server run:  pm2 stop /hexo_run.js  *****" 
 echo "***** start hexo server run:  pm2 start /hexo_run.js  *****" 
 
@@ -80,5 +100,10 @@ else
     /app/userRun.sh; 
 fi
 
-pm2 start /hexo_run.js
-pm2 logs hexo_run
+if [ -n "$RUN_AS" ]; then
+    su-exec node pm2 start /hexo_run.js
+    su-exec node pm2 logs hexo_run
+else
+    pm2 start /hexo_run.js
+    pm2 logs hexo_run
+fi
