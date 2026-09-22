@@ -35,7 +35,6 @@ else
         hexo-admin \
         hexo-deployer-git \
         hexo-generator-feed \
-        hexo-wordcount \
         hexo-filter-github-emojis \
         hexo-generator-sitemap \
         hexo-admonition \

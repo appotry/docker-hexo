@@ -9,7 +9,7 @@
 ### F1：Hexo 博客环境
 - 容器内预装 hexo-cli、git、ssh，支持所有 hexo 命令
 - 容器启动时若挂载卷 `/app` 为空，自动执行 `hexo init` 初始化博客
-- 默认安装常用 hexo 插件：admin、deployer-git、generator-feed、generator-sitemap、wordcount 等
+- 默认安装常用 hexo 插件：admin、deployer-git、generator-feed、generator-sitemap 等
 
 ### F2：包管理
 - 使用 cnpm（淘宝镜像）加速中国区 npm 安装
